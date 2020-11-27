@@ -1,0 +1,632 @@
+{
+  "asyncapi": "2.0.0",
+  "info": {
+    "title": "Chat Events",
+    "version": "1.0.0"
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "chat-events": {
+      "subscribe": {
+        "summary": "Notifications of actions performed in chat by system or users",
+        "message": {
+          "oneOf": [
+            {
+              "$ref": "#/components/messages/workspace.WorkspaceCreated"
+            },
+            {
+              "$ref": "#/components/messages/workspace.MemberJoined"
+            },
+            {
+              "$ref": "#/components/messages/workspace.MemberLeft"
+            },
+            {
+              "$ref": "#/components/messages/workspace.MemberInvited"
+            },
+            {
+              "$ref": "#/components/messages/chatRoom.ChatRoomCreated"
+            },
+            {
+              "$ref": "#/components/messages/chatRoom.MemberJoined"
+            },
+            {
+              "$ref": "#/components/messages/chatRoom.MemberLeft"
+            },
+            {
+              "$ref": "#/components/messages/chatRoom.MessageAction"
+            },
+            {
+              "$ref": "#/components/messages/user.UserActivated"
+            },
+            {
+              "$ref": "#/components/messages/user.UserInvited"
+            },
+            {
+              "$ref": "#/components/messages/user.UserDeactivated"
+            },
+            {
+              "$ref": "#/components/messages/user.MarketingConsentGranted"
+            },
+            {
+              "$ref": "#/components/messages/user.MarketingConsentRevoked"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EventEnvelope": {
+        "description": "Envelope shared between messages",
+        "type": "object",
+        "required": [
+          "eventName",
+          "eventId",
+          "timestamp"
+        ],
+        "properties": {
+          "eventName": {
+            "type": "string"
+          },
+          "eventId": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "workspaceId": {
+            "type": "string",
+            "description": "Identifier of the workspace in the chat"
+          },
+          "workspaceName": {
+            "type": "string",
+            "description": "Name of the workspace"
+          }
+        }
+      },
+      "UserRole": {
+        "enum": [
+          "Manager",
+          "Vendor"
+        ]
+      },
+      "ChatRoomActionType": {
+        "enum": [
+          "newMessage",
+          "messageUpdated",
+          "messageDeleted",
+          "newReaction",
+          "reactionDeleted",
+          "newFile",
+          "fileDeleted"
+        ]
+      }
+    },
+    "messages": {
+      "workspace.WorkspaceCreated": {
+        "description": "Informs about newly created workspace",
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "workspace.WorkspaceCreated"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "licenseId"
+                  ],
+                  "properties": {
+                    "licenseId": {
+                      "type": "string",
+                      "description": "License ID as provided by XTRF instance"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "examples": [
+          {
+            "payload": {
+              "eventName": "workspace.WorkspaceCreated",
+              "eventId": "79bf7084-5f3f-4a6e-abbb-8deaad568292",
+              "timestamp": "2020-11-06T07:32:11.980Z",
+              "workspaceId": "6254a0ee-4bc0-4330-97dd-a1d7eccc2f32",
+              "workspaceName": "Example Workspace",
+              "payload": {
+                "licenseId": "04826376-50e9-4afd-b52c-188b5b2a00d5"
+              }
+            }
+          }
+        ]
+      },
+      "workspace.MemberJoined": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "workspace.MemberJoined"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId",
+                    "userRole"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "workspace.MemberLeft": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "workspace.MemberLeft"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId",
+                    "userRole",
+                    "selfRemoval"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    },
+                    "selfRemoval": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "workspace.MemberInvited": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "workspace.MemberInvited"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId",
+                    "userRole"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "chatRoom.ChatRoomCreated": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "chatRoom.ChatRoomCreated"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "chatRoomId",
+                    "chatRoomName"
+                  ],
+                  "properties": {
+                    "chatRoomId": {
+                      "type": "string"
+                    },
+                    "chatRoomName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "chatRoom.MemberJoined": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "chatRoom.MemberJoined"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "chatRoomId",
+                    "chatRoomName",
+                    "userId",
+                    "userRole"
+                  ],
+                  "properties": {
+                    "chatRoomId": {
+                      "type": "string"
+                    },
+                    "chatRoomName": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "chatRoom.MemberLeft": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "chatRoom.MemberLeft"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "chatRoomId",
+                    "chatRoomName",
+                    "userId",
+                    "userRole",
+                    "selfRemoval"
+                  ],
+                  "properties": {
+                    "chatRoomId": {
+                      "type": "string"
+                    },
+                    "chatRoomName": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    },
+                    "selfRemoval": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "chatRoom.MessageAction": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "chatRoom.MessageAction"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "chatRoomId",
+                    "chatRoomName",
+                    "userId",
+                    "userRole",
+                    "actionType",
+                    "numberOfRecipients"
+                  ],
+                  "properties": {
+                    "chatRoomId": {
+                      "type": "string"
+                    },
+                    "chatRoomName": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "userRole": {
+                      "$ref": "#/components/schemas/UserRole"
+                    },
+                    "actionType": {
+                      "$ref": "#/components/schemas/ChatRoomActionType"
+                    },
+                    "numberOfRecipients": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "user.UserActivated": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "user.UserActivated"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "user.UserInvited": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "user.UserInvited"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "user.UserDeactivated": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "workspaceId",
+                "worspaceName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "user.UserDeactivated"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "user.MarketingConsentGranted": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "user.MarketingConsentGranted"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "user.MarketingConsentRevoked": {
+        "payload": {
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/EventEnvelope"
+            },
+            {
+              "type": "object",
+              "required": [
+                "eventName",
+                "payload"
+              ],
+              "properties": {
+                "eventName": {
+                  "const": "user.MarketingConsentRevoked"
+                },
+                "payload": {
+                  "type": "object",
+                  "required": [
+                    "userId"
+                  ],
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
