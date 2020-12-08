@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.0.0
+  version: docs version 1.1.0
 defaultContentType: "application/json"
 channels:
   tms-events:
@@ -13,7 +13,7 @@ channels:
           - $ref: "#/components/messages/project.Archived"
           - $ref: "#/components/messages/project.ManagerAssigned"
           - $ref: "#/components/messages/project.ManagerUnassigned"
-          - $ref: "#/components/messages/project.BasicInfoUpdated"
+          - $ref: "#/components/messages/project.InfoUpdated"
           - $ref: "#/components/messages/project.StatusOpened"
           - $ref: "#/components/messages/project.StatusStarted"
           - $ref: "#/components/messages/project.StatusClosed"
@@ -24,16 +24,14 @@ channels:
           - $ref: "#/components/messages/job.Archived"
           - $ref: "#/components/messages/job.VendorAssigned"
           - $ref: "#/components/messages/job.VendorUnassigned"
-          - $ref: "#/components/messages/job.BasicInfoUpdated"
+          - $ref: "#/components/messages/job.InfoUpdated"
           - $ref: "#/components/messages/job.StatusOpened"
           - $ref: "#/components/messages/job.StatusStarted"
           - $ref: "#/components/messages/job.StatusClosed"
           - $ref: "#/components/messages/job.StatusReopened"
           - $ref: "#/components/messages/job.StatusCanceled"
-          - $ref: "#/components/messages/job.EvaluationRated"
-          - $ref: "#/components/messages/job.OfferRequested"
-          - $ref: "#/components/messages/job.OfferResponseReceived"
-          - $ref: "#/components/messages/job.OfferCanceled"
+          - $ref: "#/components/messages/job.FilesAdded"
+          - $ref: "#/components/messages/job.FilesRemoved"
 
           - $ref: "#/components/messages/user.DeletedOrErased"
 
@@ -46,6 +44,8 @@ components:
         - eventName
         - eventId
         - timestamp
+        - workspaceId
+        - event
       properties:
         eventName:
           type: string
@@ -66,6 +66,247 @@ components:
         metadata:
           type: object
           description: "Other, client defined data"
+        causedBy:
+          type: string
+          format: UUID
+        event:
+          type: object
+
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: UUID
+        name:
+          type: string
+        number:
+          type: string
+        urls:
+          type: object
+          properties:
+            clientView:
+              type: string
+            managerView:
+              type: string
+        finance:
+          type: object
+          properties:
+            currency:
+              type: string
+              format: currency-ISO-code
+            summary:
+              type: object
+              required: [totalValue]
+              properties:
+                totalValue:
+                  type: number
+                totalCost:
+                  type: number
+        services:
+          type: array
+          items:
+            type: object
+            required: [serviceName, serviceSpecification]
+            properties:
+              finance:
+                type: object
+                properties:
+                  totalValue:
+                    type: number
+                  calculationUnit:
+                    type: string
+                  quantity:
+                    type: object
+                    properties:
+                      totalQuantity:
+                        type: number
+                      weighedQuantity:
+                        type: number
+              serviceName:
+                type: object
+                required: [notLocalized]
+                properties:
+                  notLocalized:
+                    type: string
+                  localizations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        language:
+                          type: string
+                          format: lang-ISO-code
+                        localizedName:
+                          type: string
+              serviceSpecification:
+                type: object
+                required: [sourceLanguage, targetLanguage, specialization]
+                properties:
+                  sourceLanguage:
+                    type: string
+                    format: lang-ISO-code
+                  targetLanguage:
+                    type: string
+                    format: lang-ISO-code
+                  specialization:
+                    type: object
+                    required: [notLocalized]
+                    properties:
+                      notLocalized:
+                        type: string
+                      localizations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            language:
+                              type: string
+                              format: lang-ISO-code
+                            localizedName:
+                              type: string
+                  catToolName:
+                    type: string
+                  mtEngineName:
+                    type: string
+        dates:
+          type: object
+          properties:
+            plannedStartDate:
+              type: string
+              format: date-time
+            plannedEndDate:
+              type: string
+              format: date-time
+        client:
+          type: object
+          required: [id, name, number, location]
+          properties:
+            id:
+              type: string
+              format: UUID
+            name:
+              type: string
+            number:
+              type: string
+            location:
+              type: object
+              required: [country, city]
+              properties:
+                country:
+                  type: string
+                city:
+                  type: string
+
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+          format: UUID
+        projectId:
+          type: string
+          format: UUID
+        name:
+          type: string
+        number:
+          type: string
+        urls:
+          type: object
+          properties:
+            clientView:
+              type: string
+            managerView:
+              type: string
+            vendorView:
+              type: string
+        finance:
+          type: object
+          properties:
+            currency:
+              type: string
+              format: currency-ISO-code
+            summary:
+              type: object
+              required: [totalValue]
+              properties:
+                totalValue:
+                  type: number
+        services:
+          type: array
+          items:
+            type: object
+            required: [serviceName, serviceSpecification]
+            properties:
+              finance:
+                type: object
+                properties:
+                  totalValue:
+                    type: number
+                  calculationUnit:
+                    type: string
+                  quantity:
+                    type: object
+                    properties:
+                      totalQuantity:
+                        type: number
+                      weighedQuantity:
+                        type: number
+              serviceName:
+                type: object
+                required: [notLocalized]
+                properties:
+                  notLocalized:
+                    type: string
+                  localizations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        language:
+                          type: string
+                          format: lang-ISO-code
+                        localizedName:
+                          type: string
+              serviceSpecification:
+                type: object
+                required: [sourceLanguage, targetLanguage, specialization]
+                properties:
+                  sourceLanguage:
+                    type: string
+                    format: lang-ISO-code
+                  targetLanguage:
+                    type: string
+                    format: lang-ISO-code
+                  specialization:
+                    type: object
+                    required: [notLocalized]
+                    properties:
+                      notLocalized:
+                        type: string
+                      localizations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            language:
+                              type: string
+                              format: lang-ISO-code
+                            localizedName:
+                              type: string
+                  catToolName:
+                    type: string
+                  mtEngineName:
+                    type: string
+        dates:
+          type: object
+          properties:
+            plannedStartDate:
+              type: string
+              format: date-time
+            plannedEndDate:
+              type: string
+              format: date-time
 
     User:
       type: object
@@ -82,22 +323,6 @@ components:
         - manager
         - vendor
 
-    SpecificationType:
-      enum:
-        - CAT_GRID
-        - SIMPLE
-        - MT
-
-    RateType:
-      enum:
-        - percent
-        - fixed
-
-    Response:
-      enum:
-        - accepted
-        - rejected
-
   messages:
 
     project.Created:
@@ -108,7 +333,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.created
@@ -117,75 +342,8 @@ components:
                 required: [project]
                 properties:
                   project:
-                    type: object
                     required: [id, name, number, urls, services, dates, client]
-                    properties:
-                      id:
-                        type: string
-                        format: UUID
-                      name:
-                        type: string
-                      number:
-                        type: string
-                      urls:
-                        type: object
-                        properties:
-                          clientView:
-                            type: string
-                          managerView:
-                            type: string
-                      services:
-                        type: array
-                        items:
-                          type: object
-                          required: [serviceName, serviceSpecification]
-                          properties:
-                            serviceName:
-                              type: string
-                            serviceSpecification:
-                              type: object
-                              required: [sourceLanguage, targetLanguage, specialization]
-                              properties:
-                                sourceLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                targetLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                specialization:
-                                  type: string
-                                catToolName:
-                                  type: string
-                                mtEngineName:
-                                  type: string
-                      dates:
-                        type: object
-                        properties:
-                          plannedStartDate:
-                            type: string
-                            format: date-time
-                          plannedEndDate:
-                            type: string
-                            format: date-time
-                      client:
-                        type: object
-                        required: [id, name, number, location]
-                        properties:
-                          id:
-                            type: string
-                            format: UUID
-                          name:
-                            type: string
-                          number:
-                            type: string
-                          location:
-                            type: object
-                            required: [country, city]
-                            properties:
-                              country:
-                                type: string
-                              city:
-                                type: string
+                    $ref: "#/components/schemas/Project"
 
     project.Archived:
       description: |
@@ -195,7 +353,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.archived
@@ -215,7 +373,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.managerAssigned
@@ -255,7 +413,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.managerUnassigned
@@ -270,117 +428,26 @@ components:
                     type: string
                     format: UUID
 
-    project.BasicInfoUpdated:
+    project.InfoUpdated:
       description: |
-        * TMS should send it when: Project basic info was updated
+        * TMS should send it when: Project info was updated
         * XTRF sends it when: Project name or number was updated
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.project.basicInfo.updated
+                const: tms.event.project.info.updated
               event:
                 type: object
                 required: [project]
                 properties:
                   project:
-                    type: object
-                    required: [id]
                     description: "Only fields that have changed"
-                    properties:
-                      id:
-                        type: string
-                        format: UUID
-                      name:
-                        type: string
-                      number:
-                        type: string
-                      urls:
-                        type: object
-                        properties:
-                          clientView:
-                            type: string
-                          managerView:
-                            type: string
-                      finance:
-                        type: object
-                        properties:
-                          currency:
-                            type: string
-                            format: currency-ISO-code
-                          summary:
-                            type: object
-                            required: [totalValue]
-                            properties:
-                              totalValue:
-                                type: number
-                              totalCost:
-                                type: number
-                      services:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            finance:
-                              type: object
-                              properties:
-                                totalValue:
-                                  type: number
-                                calculationUnit:
-                                  type: string
-                                quantity:
-                                  type: object
-                                  properties:
-                                    totalQuantity:
-                                      type: number
-                                    weighedQuantity:
-                                      type: number
-                            serviceName:
-                              type: string
-                            serviceSpecification:
-                              type: object
-                              properties:
-                                sourceLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                targetLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                specialization:
-                                  type: string
-                                catToolName:
-                                  type: string
-                                mtEngineName:
-                                  type: string
-                      dates:
-                        type: object
-                        properties:
-                          plannedStartDate:
-                            type: string
-                            format: date-time
-                          plannedEndDate:
-                            type: string
-                            format: date-time
-                      client:
-                        type: object
-                        properties:
-                          id:
-                            type: string
-                            format: UUID
-                          name:
-                            type: string
-                          number:
-                            type: string
-                          location:
-                            type: object
-                            properties:
-                              country:
-                                type: string
-                              city:
-                                type: string
+                    required: [id]
+                    $ref: "#/components/schemas/Project"
 
     project.StatusOpened:
       description: |
@@ -390,7 +457,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.status.opened
@@ -405,7 +472,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  openedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -417,7 +484,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.status.started
@@ -432,7 +499,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  startedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -444,7 +511,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.status.closed
@@ -459,7 +526,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  closedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -471,7 +538,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.status.reopened
@@ -486,7 +553,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  reopenedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -498,7 +565,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.project.status.canceled
@@ -513,7 +580,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  canceledAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -525,7 +592,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.created
@@ -534,61 +601,8 @@ components:
                 required: [job]
                 properties:
                   job:
-                    type: object
-                    required: [projectId, id, number, urls, services, dates]
-                    properties:
-                      projectId:
-                        type: string
-                        format: UUID
-                      id:
-                        type: string
-                        format: UUID
-                      number:
-                        type: string
-                      name:
-                        type: string
-                      urls:
-                        type: object
-                        properties:
-                          clientView:
-                            type: string
-                          managerView:
-                            type: string
-                          vendorView:
-                            type: string
-                      services:
-                        type: array
-                        items:
-                          type: object
-                          required: [serviceName, serviceSpecification]
-                          properties:
-                            serviceName:
-                              type: string
-                            serviceSpecification:
-                              type: object
-                              required: [sourceLanguage, targetLanguage, specialization]
-                              properties:
-                                sourceLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                targetLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                specialization:
-                                  type: string
-                                catToolName:
-                                  type: string
-                                mtEngineName:
-                                  type: string
-                      dates:
-                        type: object
-                        properties:
-                          plannedStartDate:
-                            type: string
-                            format: date-time
-                          plannedEndDate:
-                            type: string
-                            format: date-time
+                    required: [id, projectId, name, number, urls, services, dates]
+                    $ref: "#/components/schemas/Job"
 
     job.Archived:
       description: |
@@ -598,7 +612,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.archived
@@ -618,7 +632,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.vendorAssigned
@@ -631,7 +645,7 @@ components:
                     format: UUID
                   vendor:
                     type: object
-                    required: [id, name, email, location, rates]
+                    required: [id, name, email, location]
                     properties:
                       id:
                         type: string
@@ -651,33 +665,6 @@ components:
                             type: string
                           city:
                             type: string
-                      rates:
-                        type: array
-                        items:
-                          type: object
-                          required: [rate, currency, calculationUnit, service]
-                          properties:
-                            rate:
-                              type: number
-                            currency:
-                              type: string
-                              format: currency-ISO-code
-                            calculationUnit: 
-                              type: string
-                            service:
-                              type: object
-                              required: [type, sourceLanguage, targetLanguage, specialization]
-                              properties:
-                                type:
-                                  type: string
-                                sourceLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                targetLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                specialization:
-                                  type: string
 
     job.VendorUnassigned:
       description: |
@@ -687,7 +674,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.vendorUnassigned
@@ -702,102 +689,26 @@ components:
                     type: string
                     format: UUID
 
-    job.BasicInfoUpdated:
+    job.InfoUpdated:
       description: |
-        * TMS should send it when: Job basic info was updated
+        * TMS should send it when: Job info was updated
         * XTRF sends it when: Job type, number, languages or specializations were updated
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.basicInfo.updated
+                const: tms.event.job.info.updated
               event:
                 type: object
                 required: [job]
                 properties:
                   job:
-                    type: object
-                    required: [id]
-                    properties:
-                      projectId:
-                        type: string
-                        format: UUID
-                      id:
-                        type: string
-                        format: UUID
-                      number:
-                        type: string
-                      name:
-                        type: string
-                      urls:
-                        type: object
-                        properties:
-                          clientView:
-                            type: string
-                          managerView:
-                            type: string
-                          vendorView:
-                            type: string
-                      finance:
-                        type: object
-                        properties:
-                          currency:
-                            type: string
-                            format: currency-ISO-code
-                          summary:
-                            type: object
-                            required: [totalValue]
-                            properties:
-                              totalValue:
-                                type: number
-                      services:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            finance:
-                              type: object
-                              properties:
-                                totalValue:
-                                  type: number
-                                calculationUnit:
-                                  type: string
-                                quantity:
-                                  type: object
-                                  properties:
-                                    totalQuantity:
-                                      type: number
-                                    weighedQuantity:
-                                      type: number
-                            serviceName:
-                              type: string
-                            serviceSpecification:
-                              type: object
-                              properties:
-                                sourceLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                targetLanguage:
-                                  type: string
-                                  format: lang-ISO-code
-                                specialization:
-                                  type: string
-                                catToolName:
-                                  type: string
-                                mtEngineName:
-                                  type: string
-                      dates:
-                        type: object
-                        properties:
-                          plannedStartDate:
-                            type: string
-                            format: date-time
-                          plannedEndDate:
-                            type: string
-                            format: date-time
+                    description: "Only fields that have changed"
+                    required: [id, projectId]
+                    $ref: "#/components/schemas/Job"
 
     job.StatusOpened:
       description: |
@@ -807,7 +718,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.status.opened
@@ -822,7 +733,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  openedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -834,7 +745,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.status.started
@@ -849,7 +760,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  startedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -861,7 +772,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.status.closed
@@ -876,7 +787,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  closedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -888,7 +799,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.status.reopened
@@ -903,7 +814,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  reopenedAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
@@ -915,7 +826,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.status.canceled
@@ -930,103 +841,70 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  canceledAt:
+                  occuredAt:
                     type: string
                     format: date-time
 
-    job.EvaluationRated:
+    job.FilesAdded:
       description: |
-        * TMS should send it when: A rating was added to a Job
-        * XTRF sends it when: A rating was added to a Job
+        * TMS should send it when: A file was added to a Job
+        * XTRF sends it when: A file was added to a Job
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.evaluation.rated
+                const: tms.event.job.files.added
               event:
                 type: object
-                required: [jobId, rating]
+                required: [jobId, files]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  rating:
-                    type: object
-                    required: [id, addedTimestamp, author, url, properties]
-                    properties:
-                      id:
-                        type: string
-                        format: UUID
-                      addedTimestamp:
-                        type: string
-                        format: date-time
-                      author:
-                        type: string
-                      url:
-                        type: string
+                  files:
+                    type: array
+                    items:
+                      type: object
+                      required: [id, name, url, properties]
                       properties:
-                        type: object
-                        description: Field to be defined/finished...
+                        id:
+                          type: string
+                          format: UUID
+                        name:
+                          type: string
+                        url:
+                          type: string
                         properties:
-                          rating:
-                            type: string
-                          comment:
-                            type: string
+                          type: object
+                          description: To be defined...
 
-    job.OfferRequested:
+    job.FilesRemoved:
       description: |
-        * TMS should send it when: Job Offer was requested
-        * XTRF sends it when: Job Offer was requested (sent) in Project or Quote
+        * TMS should send it when: A file was removed from a Job
+        * XTRF sends it when: A file was removed from a Job
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.offer.requested
+                const: tms.event.job.files.removed
               event:
                 type: object
-                required: [jobId, offer]
+                required: [jobId, fileIds]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  offer:
-                    type: object
-                    description: To be defined...
-
-    job.OfferCanceled:
-      description:
-        To be defined...
-
-    job.OfferResponseReceived:
-      description: |
-        * TMS should send it when: Job Offer was accepted or rejected
-        * XTRF sends it when: Job Offer was accepted or rejected via Job Offer page in Vendor Portal
-      payload:
-        allOf:
-          - $ref: "#/components/schemas/EventEnvelope"
-          - type: object
-            required: [eventName, workspaceId, workspaceName, event]
-            properties:
-              eventName:
-                const: tms.event.job.offer.response.received
-              event:
-                type: object
-                required: [jobId, offerId, response]
-                properties:
-                  jobId:
-                    type: string
-                    format: UUID
-                  offerId:
-                    type: string
-                    format: UUID
-                  response:
-                    $ref: "#/components/schemas/Response"
+                  fileIds:
+                    type: array
+                    items:
+                      type: string
+                      format: UUID
 
     user.DeletedOrErased:
       description: |
@@ -1036,7 +914,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [eventName, workspaceId, workspaceName, event]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.user.deletedOrErased
