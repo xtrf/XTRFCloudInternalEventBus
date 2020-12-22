@@ -72,6 +72,25 @@ components:
         event:
           type: object
 
+    LocalizedName:
+      description: "Object that stores localized names."
+      type: object
+      required: [notLocalized]
+      properties:
+        notLocalized:
+          type: string
+        localizations:
+          type: array
+          description: "Array of object presenting localized names: pl - xxx, en - yyy etc."
+          items:
+            type: object
+            properties:
+              language:
+                type: string
+                format: lang-ISO-code
+              localizedName:
+                type: string
+
     Project:
       type: object
       properties:
@@ -124,21 +143,7 @@ components:
                       weighedQuantity:
                         type: number
               serviceName:
-                type: object
-                required: [notLocalized]
-                properties:
-                  notLocalized:
-                    type: string
-                  localizations:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        language:
-                          type: string
-                          format: lang-ISO-code
-                        localizedName:
-                          type: string
+                $ref: "#/components/schemas/LocalizedName"
               serviceSpecification:
                 type: object
                 required: [sourceLanguage, targetLanguage, specialization]
@@ -150,21 +155,7 @@ components:
                     type: string
                     format: lang-ISO-code
                   specialization:
-                    type: object
-                    required: [notLocalized]
-                    properties:
-                      notLocalized:
-                        type: string
-                      localizations:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            language:
-                              type: string
-                              format: lang-ISO-code
-                            localizedName:
-                              type: string
+                    $ref: "#/components/schemas/LocalizedName"
                   catToolName:
                     type: string
                   mtEngineName:
@@ -253,21 +244,7 @@ components:
                       weighedQuantity:
                         type: number
               serviceName:
-                type: object
-                required: [notLocalized]
-                properties:
-                  notLocalized:
-                    type: string
-                  localizations:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        language:
-                          type: string
-                          format: lang-ISO-code
-                        localizedName:
-                          type: string
+                $ref: "#/components/schemas/LocalizedName"
               serviceSpecification:
                 type: object
                 required: [sourceLanguage, targetLanguage, specialization]
@@ -279,21 +256,7 @@ components:
                     type: string
                     format: lang-ISO-code
                   specialization:
-                    type: object
-                    required: [notLocalized]
-                    properties:
-                      notLocalized:
-                        type: string
-                      localizations:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            language:
-                              type: string
-                              format: lang-ISO-code
-                            localizedName:
-                              type: string
+                    $ref: "#/components/schemas/LocalizedName"
                   catToolName:
                     type: string
                   mtEngineName:
@@ -307,6 +270,13 @@ components:
             plannedEndDate:
               type: string
               format: date-time
+        instructions:
+          type: object
+          properties:
+            fromManager:
+              type: string
+            fromPreviousVendors:
+              type: string
 
     User:
       type: object
