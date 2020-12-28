@@ -33,13 +33,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run generate-docs
-      - name: Push docs to gh-pages
-          uses: cpina/github-action-push-to-another-repository@master
-          env:
-            API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-          with:
-            source-directory: 'docs'
-            target-branch: 'documentation'
-            destination-github-username: 'j2sat'
-            destination-repository-name: 'XTRFCloudInternalEventBus'
-            user-email: ruszczak.piotr@gmail.com
+      - name: Push docs to its repo
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'docs'
+          target-branch: 'documentation'
+          destination-github-username: 'j2sat'
+          destination-repository-name: 'XTRFCloudInternalEventBus'
+          user-email: ruszczak.piotr@gmail.com
