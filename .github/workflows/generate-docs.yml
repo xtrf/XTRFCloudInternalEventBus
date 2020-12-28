@@ -40,6 +40,6 @@ jobs:
         with:
           source-directory: 'docs'
           target-branch: 'documentation'
-          destination-github-username: 'j2sat'
+          destination-github-username: 'xtrf'
           destination-repository-name: 'XTRFCloudInternalEventBus'
           user-email: ruszczak.piotr@gmail.com
