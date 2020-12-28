@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.1.0
+  version: docs version 1.1.1
 defaultContentType: "application/json"
 channels:
   tms-events:
