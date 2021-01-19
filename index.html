@@ -145,10 +145,10 @@
             </div>
           </a>
         
-          <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3" href="#message-project.StatusCanceled">
+          <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3" href="#message-project.StatusCancelled">
             <div style="display:inline-block;">
               
-<span class="string-chunk" style="padding-top: 2px;">project.StatusCanceled</span>
+<span class="string-chunk" style="padding-top: 2px;">project.StatusCancelled</span>
 
             </div>
           </a>
@@ -225,10 +225,10 @@
             </div>
           </a>
         
-          <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3" href="#message-job.StatusCanceled">
+          <a class="js-menu-item flex break-words no-underline text-grey-darkest mt-8 sm:mt-8 md:mt-3" href="#message-job.StatusCancelled">
             <div style="display:inline-block;">
               
-<span class="string-chunk" style="padding-top: 2px;">job.StatusCanceled</span>
+<span class="string-chunk" style="padding-top: 2px;">job.StatusCancelled</span>
 
             </div>
           </a>
@@ -2591,7 +2591,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -2629,7 +2629,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -2713,143 +2713,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -2881,7 +2747,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -2892,26 +2759,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -3145,7 +2992,7 @@ string
         <span class="text-sm" style="word-break: break-word;">specialization</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -3183,7 +3030,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -3267,143 +3114,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -3435,7 +3148,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -3446,26 +3160,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -3677,8 +3371,6 @@ string
           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
         </svg>
         
-        
-          <div class="text-red-dark text-xs">required</div>
         
         
       </div>
@@ -10541,7 +10233,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -10579,7 +10271,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -10663,143 +10355,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -10831,7 +10389,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -10842,26 +10401,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -11095,7 +10634,7 @@ string
         <span class="text-sm" style="word-break: break-word;">specialization</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -11133,7 +10672,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -11217,143 +10756,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -11385,7 +10790,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -11396,26 +10802,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -13495,8 +12881,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -13551,7 +12935,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -14777,8 +14161,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -14833,7 +14215,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -16059,8 +15441,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -16115,7 +15495,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -17341,8 +16721,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -17397,7 +16775,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -17520,7 +16898,7 @@ string
     <span class="text-grey-darker font-bold mr-2">#10</span>
     
     
-      <span class="border text-orange rounded text-s py-0 px-2">project.StatusCanceled</span>
+      <span class="border text-orange rounded text-s py-0 px-2">project.StatusCancelled</span>
     
   </div>
   <p class="text-grey-dark text-sm"></p>
@@ -17536,7 +16914,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was calceled</li>
-<li>XTRF sends it when: Project status was changed to Canceled or Quote status was changed to Rejected</li>
+<li>XTRF sends it when: Project status was changed to Cancelled or Quote status was changed to Rejected</li>
 </ul>
 </div>
   
@@ -18407,7 +17785,7 @@ object
 
         
         
-          <div class="text-xs">Const: &quot;tms.event.project.status.canceled&quot;</div>
+          <div class="text-xs">Const: &quot;tms.event.project.status.cancelled&quot;</div>
         
         
         
@@ -18623,8 +18001,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -18679,7 +18055,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -21127,7 +20503,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -21165,7 +20541,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -21249,143 +20625,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -21417,7 +20659,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -21428,26 +20671,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -21555,72 +20778,6 @@ object
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-
-            
-          
-            
-            
-            
-              
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
-        
-        
-        
-        
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -21678,10 +20835,8 @@ string
   <div class="">
     <div class="js-prop cursor-pointer py-2 flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
         
-        
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -21690,7 +20845,160 @@ string
         </svg>
         
         
-          <div class="text-red-dark text-xs">required</div>
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+array&lt;string&gt;
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+        
+
+        
+        
+
+        
+
+          
+          
+            <p class="pl-6 mb-2 text-xs font-bold uppercase text-grey-darker">Items:</p>
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">0</span>
+        
+        
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+
+          
+
+          
+            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
+          
+        
+        
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lighter pl-8 pr-8 rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        
+        
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
+        
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
         
         
       </div>
@@ -21719,7 +21027,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -21803,143 +21111,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -21971,7 +21145,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -21982,26 +21157,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -22213,8 +21368,6 @@ string
           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
         </svg>
         
-        
-          <div class="text-red-dark text-xs">required</div>
         
         
       </div>
@@ -28921,7 +28074,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -28959,7 +28112,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -29043,143 +28196,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -29211,7 +28230,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -29222,26 +28242,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -29349,72 +28349,6 @@ object
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-
-            
-          
-            
-            
-            
-              
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
-        
-        
-        
-        
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -29472,10 +28406,8 @@ string
   <div class="">
     <div class="js-prop cursor-pointer py-2 flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
         
-        
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -29484,7 +28416,160 @@ string
         </svg>
         
         
-          <div class="text-red-dark text-xs">required</div>
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+array&lt;string&gt;
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+        
+
+        
+        
+
+        
+
+          
+          
+            <p class="pl-6 mb-2 text-xs font-bold uppercase text-grey-darker">Items:</p>
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">0</span>
+        
+        
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+
+          
+
+          
+            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
+          
+        
+        
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lighter pl-8 pr-8 rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        
+        
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
+        
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
         
         
       </div>
@@ -29513,7 +28598,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -29597,143 +28682,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -29765,7 +28716,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -29776,26 +28728,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -31532,6 +30464,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -31598,8 +30594,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -31654,7 +30648,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -32814,6 +31808,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -32880,8 +31938,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -32936,7 +31992,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -34096,6 +33152,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -34162,8 +33282,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -34218,7 +33336,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -35378,6 +34496,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -35444,8 +34626,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -35500,7 +34680,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -35623,7 +34803,7 @@ string
     <span class="text-grey-darker font-bold mr-2">#20</span>
     
     
-      <span class="border text-orange rounded text-s py-0 px-2">job.StatusCanceled</span>
+      <span class="border text-orange rounded text-s py-0 px-2">job.StatusCancelled</span>
     
   </div>
   <p class="text-grey-dark text-sm"></p>
@@ -35638,8 +34818,8 @@ string
 
 
   <div class="mt-4 mb-4 markdown"><ul>
-<li>TMS should send it when: Job status was changed to a status that means the job was canceled</li>
-<li>XTRF sends it when: Job status was changed to Canceled</li>
+<li>TMS should send it when: Job status was changed to a status that means the job was cancelled</li>
+<li>XTRF sends it when: Job status was changed to Cancelled</li>
 </ul>
 </div>
   
@@ -36510,7 +35690,7 @@ object
 
         
         
-          <div class="text-xs">Const: &quot;tms.event.job.status.canceled&quot;</div>
+          <div class="text-xs">Const: &quot;tms.event.job.status.cancelled&quot;</div>
         
         
         
@@ -36660,6 +35840,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -36726,8 +35970,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -36782,7 +36024,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -40944,24 +40186,14 @@ string
           },
           "serviceName": {
             "notLocalized": "string",
-            "localizations": [
-              {
-                "language": "string",
-                "localizedName": "string"
-              }
-            ]
+            "dictionaryId": "string"
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
             "targetLanguage": "string",
             "specialization": {
               "notLocalized": "string",
-              "localizations": [
-                {
-                  "language": "string",
-                  "localizedName": "string"
-                }
-              ]
+              "dictionaryId": "string"
             },
             "catToolName": "string",
             "mtEngineName": "string"
@@ -41182,24 +40414,14 @@ string
           },
           "serviceName": {
             "notLocalized": "string",
-            "localizations": [
-              {
-                "language": "string",
-                "localizedName": "string"
-              }
-            ]
+            "dictionaryId": "string"
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
             "targetLanguage": "string",
             "specialization": {
               "notLocalized": "string",
-              "localizations": [
-                {
-                  "language": "string",
-                  "localizedName": "string"
-                }
-              ]
+              "dictionaryId": "string"
             },
             "catToolName": "string",
             "mtEngineName": "string"
@@ -41263,7 +40485,7 @@ string
     "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41307,7 +40529,7 @@ string
     "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41351,7 +40573,7 @@ string
     "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41395,7 +40617,7 @@ string
     "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41412,7 +40634,7 @@ string
   
 
 <form>
-  <h5 class="examples-uid text-orange mt-4">project.StatusCanceled</h5>
+  <h5 class="examples-uid text-orange mt-4">project.StatusCancelled</h5>
   
     <div class="payload-examples mb-4 ">
       <div class="js-prop cursor-pointer  flex property">
@@ -41427,7 +40649,7 @@ string
       <div class="children payload-examples mt-4">
         
         <pre class="hljs mb-4 border border-grey-darkest rounded"><code>{
-  "eventName": "tms.event.project.status.canceled",
+  "eventName": "tms.event.project.status.cancelled",
   "eventId": "string",
   "timestamp": "2019-08-24T14:15:22Z",
   "workspaceId": "string",
@@ -41439,7 +40661,7 @@ string
     "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41508,24 +40730,16 @@ string
           },
           "serviceName": {
             "notLocalized": "string",
-            "localizations": [
-              {
-                "language": "string",
-                "localizedName": "string"
-              }
-            ]
+            "dictionaryId": "string"
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
-            "targetLanguage": "string",
+            "targetLanguage": [
+              "string"
+            ],
             "specialization": {
               "notLocalized": "string",
-              "localizations": [
-                {
-                  "language": "string",
-                  "localizedName": "string"
-                }
-              ]
+              "dictionaryId": "string"
             },
             "catToolName": "string",
             "mtEngineName": "string"
@@ -41743,24 +40957,16 @@ string
           },
           "serviceName": {
             "notLocalized": "string",
-            "localizations": [
-              {
-                "language": "string",
-                "localizedName": "string"
-              }
-            ]
+            "dictionaryId": "string"
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
-            "targetLanguage": "string",
+            "targetLanguage": [
+              "string"
+            ],
             "specialization": {
               "notLocalized": "string",
-              "localizations": [
-                {
-                  "language": "string",
-                  "localizedName": "string"
-                }
-              ]
+              "dictionaryId": "string"
             },
             "catToolName": "string",
             "mtEngineName": "string"
@@ -41817,9 +41023,10 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41861,9 +41068,10 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41905,9 +41113,10 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41949,9 +41158,10 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -41968,7 +41178,7 @@ string
   
 
 <form>
-  <h5 class="examples-uid text-orange mt-4">job.StatusCanceled</h5>
+  <h5 class="examples-uid text-orange mt-4">job.StatusCancelled</h5>
   
     <div class="payload-examples mb-4 ">
       <div class="js-prop cursor-pointer  flex property">
@@ -41983,7 +41193,7 @@ string
       <div class="children payload-examples mt-4">
         
         <pre class="hljs mb-4 border border-grey-darkest rounded"><code>{
-  "eventName": "tms.event.job.status.canceled",
+  "eventName": "tms.event.job.status.cancelled",
   "eventId": "string",
   "timestamp": "2019-08-24T14:15:22Z",
   "workspaceId": "string",
@@ -41993,9 +41203,10 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "newStatus": "string",
     "previousStatus": "string",
-    "occuredAt": "2019-08-24T14:15:22Z"
+    "occurredAt": "2019-08-24T14:15:22Z"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-grey-darker italic">This example has been generated automatically.</h6>
@@ -44435,7 +43646,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -44473,7 +43684,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -44557,143 +43768,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -44725,7 +43802,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -44736,26 +43814,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -44989,7 +44047,7 @@ string
         <span class="text-sm" style="word-break: break-word;">specialization</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -45027,7 +44085,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -45111,143 +44169,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -45279,7 +44203,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -45290,26 +44215,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -45521,8 +44426,6 @@ string
           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
         </svg>
         
-        
-          <div class="text-red-dark text-xs">required</div>
         
         
       </div>
@@ -52389,7 +51292,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -52427,7 +51330,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -52511,143 +51414,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -52679,7 +51448,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -52690,26 +51460,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -52943,7 +51693,7 @@ string
         <span class="text-sm" style="word-break: break-word;">specialization</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -52981,7 +51731,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -53065,143 +51815,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -53233,7 +51849,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -53244,26 +51861,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -55344,8 +53941,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -55400,7 +53995,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -56627,8 +55222,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -56683,7 +55276,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -57910,8 +56503,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -57966,7 +56557,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -59193,8 +57784,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -59249,7 +57838,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -59364,7 +57953,7 @@ string
 
 
       
-      <a name="message-project.StatusCanceled"></a>
+      <a name="message-project.StatusCancelled"></a>
       
 
 <div class="bg-grey-lighter rounded p-4 mt-2">
@@ -59373,7 +57962,7 @@ string
     <span class="text-grey-darker font-bold mr-2">#10</span>
     
     
-      <span class="border text-orange rounded text-s py-0 px-2">project.StatusCanceled</span>
+      <span class="border text-orange rounded text-s py-0 px-2">project.StatusCancelled</span>
     
   </div>
   <p class="text-grey-dark text-sm"></p>
@@ -59389,7 +57978,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was calceled</li>
-<li>XTRF sends it when: Project status was changed to Canceled or Quote status was changed to Rejected</li>
+<li>XTRF sends it when: Project status was changed to Cancelled or Quote status was changed to Rejected</li>
 </ul>
 </div>
   
@@ -60260,7 +58849,7 @@ object
 
         
         
-          <div class="text-xs">Const: &quot;tms.event.project.status.canceled&quot;</div>
+          <div class="text-xs">Const: &quot;tms.event.project.status.cancelled&quot;</div>
         
         
         
@@ -60476,8 +59065,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -60532,7 +59119,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -62981,7 +61568,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -63019,7 +61606,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -63103,143 +61690,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -63271,7 +61724,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -63282,26 +61736,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -63409,72 +61843,6 @@ object
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-
-            
-          
-            
-            
-            
-              
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
-        
-        
-        
-        
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -63532,10 +61900,8 @@ string
   <div class="">
     <div class="js-prop cursor-pointer py-2 flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
         
-        
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -63544,7 +61910,160 @@ string
         </svg>
         
         
-          <div class="text-red-dark text-xs">required</div>
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+array&lt;string&gt;
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+        
+
+        
+        
+
+        
+
+          
+          
+            <p class="pl-6 mb-2 text-xs font-bold uppercase text-grey-darker">Items:</p>
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">0</span>
+        
+        
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+
+          
+
+          
+            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
+          
+        
+        
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lighter pl-8 pr-8 rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        
+        
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
+        
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
         
         
       </div>
@@ -63573,7 +62092,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -63657,143 +62176,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -63825,7 +62210,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -63836,26 +62222,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -64067,8 +62433,6 @@ string
           <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
         </svg>
         
-        
-          <div class="text-red-dark text-xs">required</div>
         
         
       </div>
@@ -70779,7 +69143,7 @@ number
         <span class="text-sm" style="word-break: break-word;">serviceName</span>
         
         
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -70817,7 +69181,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -70901,143 +69265,9 @@ string
 
 <div class="bg-grey-lighter pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lightest py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lightest pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -71069,7 +69299,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -71080,26 +69311,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -71207,72 +69418,6 @@ object
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-
-            
-          
-            
-            
-            
-              
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
-        
-        
-        
-        
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -71330,10 +69475,8 @@ string
   <div class="">
     <div class="js-prop cursor-pointer py-2 flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        <span class="text-sm" style="word-break: break-word;">targetLanguage</span>
         
-        
-          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">LocalizedName</span>
         
         
         <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
@@ -71342,7 +69485,160 @@ string
         </svg>
         
         
-          <div class="text-red-dark text-xs">required</div>
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+array&lt;string&gt;
+          
+          
+          
+          <div class="inline-block">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <div class="children bg-grey-lightest py-4 rounded">
+        
+          
+        
+
+        
+        
+
+        
+
+          
+          
+            <p class="pl-6 mb-2 text-xs font-bold uppercase text-grey-darker">Items:</p>
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">0</span>
+        
+        
+        
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+
+          
+
+          
+            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
+          
+        
+        
+        
+
+        
+
+        
+      </div>
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lighter pl-8 pr-8 rounded">
+  <div class="">
+    <div class="js-prop cursor-pointer py-2 flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">specialization</span>
+        
+        
+          <span class="border text-orange rounded text-xs ml-3 py-0 px-2">NameWithDictionaryId</span>
+        
+        
+        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
+          xmlns="http://www.w3.org/2000/svg" y="0">
+          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+        </svg>
+        
         
         
       </div>
@@ -71371,7 +69667,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>Object that stores localized names.</p>
+<div class="text-sm markdown"><p>Object that stores not localized name and id for localizations</p>
 </div>
 
 
@@ -71455,143 +69751,9 @@ string
 
 <div class="bg-grey-lightest pl-8 pr-8 rounded">
   <div class="">
-    <div class="js-prop cursor-pointer py-2 flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizations</span>
-        
-        
-        
-        <svg class="expand" version="1.1" viewBox="0 0 24 24" x="0"
-          xmlns="http://www.w3.org/2000/svg" y="0">
-          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
-        </svg>
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-array&lt;object&gt;
-          
-          
-          
-          <div class="inline-block">
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"><p>Array of object presenting localized names: pl - xxx, en - yyy etc.</p>
-</div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-      <div class="children bg-grey-lighter py-4 rounded">
-        
-          
-        
-
-        
-        
-
-        
-
-          
-          
-
-             
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">language</span>
-        
-        
-        
-        
-        
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal font-bold">
-          
-string
-          
-          
-          
-          <div class="inline-block">
-            
-              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
-                style="height: 20px;font-size: 11px;padding: 3px;">lang-ISO-code</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-
-
-        
-        
-        
-        
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
- 
-              
-            
-              
-              
-                
-
-<div class="bg-grey-lighter pl-8 pr-8 rounded">
-  <div class="">
-    <div class=" flex property">
-      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">localizedName</span>
+        <span class="text-sm" style="word-break: break-word;">dictionaryId</span>
         
         
         
@@ -71623,7 +69785,8 @@ string
 
         
 
-<div class="text-sm markdown"></div>
+<div class="text-sm markdown"><p>Id for localized names</p>
+</div>
 
 
 
@@ -71634,26 +69797,6 @@ string
       </div>
     </div>
 
-    
-  </div>
-</div>
-
- 
-              
-            
-          
-
-          
-            <p class="pl-6 mb-2 mt-4 text-xs text-grey-darker">Additional items are allowed.</p>
-          
-        
-        
-        
-
-        
-
-        
-      </div>
     
   </div>
 </div>
@@ -73391,6 +71534,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -73457,8 +71664,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -73513,7 +71718,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -74674,6 +72879,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -74740,8 +73009,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -74796,7 +73063,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -75957,6 +74224,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -76023,8 +74354,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -76079,7 +74408,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -77240,6 +75569,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -77306,8 +75699,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -77362,7 +75753,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
@@ -77477,7 +75868,7 @@ string
 
 
       
-      <a name="message-job.StatusCanceled"></a>
+      <a name="message-job.StatusCancelled"></a>
       
 
 <div class="bg-grey-lighter rounded p-4 mt-2">
@@ -77486,7 +75877,7 @@ string
     <span class="text-grey-darker font-bold mr-2">#20</span>
     
     
-      <span class="border text-orange rounded text-s py-0 px-2">job.StatusCanceled</span>
+      <span class="border text-orange rounded text-s py-0 px-2">job.StatusCancelled</span>
     
   </div>
   <p class="text-grey-dark text-sm"></p>
@@ -77501,8 +75892,8 @@ string
 
 
   <div class="mt-4 mb-4 markdown"><ul>
-<li>TMS should send it when: Job status was changed to a status that means the job was canceled</li>
-<li>XTRF sends it when: Job status was changed to Canceled</li>
+<li>TMS should send it when: Job status was changed to a status that means the job was cancelled</li>
+<li>XTRF sends it when: Job status was changed to Cancelled</li>
 </ul>
 </div>
   
@@ -78373,7 +76764,7 @@ object
 
         
         
-          <div class="text-xs">Const: &quot;tms.event.job.status.canceled&quot;</div>
+          <div class="text-xs">Const: &quot;tms.event.job.status.cancelled&quot;</div>
         
         
         
@@ -78523,6 +76914,70 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
+        <span class="text-sm" style="word-break: break-word;">projectId</span>
+        
+        
+        
+        
+          <div class="text-red-dark text-xs">required</div>
+        
+        
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal font-bold">
+          
+string
+          
+          
+          
+          <div class="inline-block">
+            
+              <span class="bg-yellow-dark font-bold no-underline text-black rounded lowercase ml-2"
+                style="height: 20px;font-size: 11px;padding: 3px;">UUID</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+
+
+        
+        
+        
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+            
+          
+            
+            
+            
+              
+
+<div class="bg-grey-lightest pl-8 pr-8 rounded">
+  <div class="">
+    <div class=" flex property">
+      <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
         <span class="text-sm" style="word-break: break-word;">newStatus</span>
         
         
@@ -78589,8 +77044,6 @@ string
         
         
         
-          <div class="text-red-dark text-xs">required</div>
-        
         
       </div>
 
@@ -78645,7 +77098,7 @@ string
   <div class="">
     <div class=" flex property">
       <div class="pr-4" style="margin-top:-2px; min-width: 25%;">
-        <span class="text-sm" style="word-break: break-word;">occuredAt</span>
+        <span class="text-sm" style="word-break: break-word;">occurredAt</span>
         
         
         
