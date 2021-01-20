@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.1.1
+  version: docs version 1.1.2
 defaultContentType: "application/json"
 channels:
   tms-events:
@@ -18,7 +18,7 @@ channels:
           - $ref: "#/components/messages/project.StatusStarted"
           - $ref: "#/components/messages/project.StatusClosed"
           - $ref: "#/components/messages/project.StatusReopened"
-          - $ref: "#/components/messages/project.StatusCanceled"
+          - $ref: "#/components/messages/project.StatusCancelled"
 
           - $ref: "#/components/messages/job.Created"
           - $ref: "#/components/messages/job.Archived"
@@ -29,7 +29,7 @@ channels:
           - $ref: "#/components/messages/job.StatusStarted"
           - $ref: "#/components/messages/job.StatusClosed"
           - $ref: "#/components/messages/job.StatusReopened"
-          - $ref: "#/components/messages/job.StatusCanceled"
+          - $ref: "#/components/messages/job.StatusCancelled"
           - $ref: "#/components/messages/job.FilesAdded"
           - $ref: "#/components/messages/job.FilesRemoved"
 
@@ -72,24 +72,16 @@ components:
         event:
           type: object
 
-    LocalizedName:
-      description: "Object that stores localized names."
+    NameWithDictionaryId:
+      description: "Object that stores not localized name and id for localizations"
       type: object
       required: [notLocalized]
       properties:
         notLocalized:
           type: string
-        localizations:
-          type: array
-          description: "Array of object presenting localized names: pl - xxx, en - yyy etc."
-          items:
-            type: object
-            properties:
-              language:
-                type: string
-                format: lang-ISO-code
-              localizedName:
-                type: string
+        dictionaryId:
+          description: "Id for localized names"
+          type: string
 
     Project:
       type: object
@@ -143,7 +135,7 @@ components:
                       weighedQuantity:
                         type: number
               serviceName:
-                $ref: "#/components/schemas/LocalizedName"
+                $ref: "#/components/schemas/NameWithDictionaryId"
               serviceSpecification:
                 type: object
                 required: [sourceLanguage, targetLanguage, specialization]
@@ -155,7 +147,7 @@ components:
                     type: string
                     format: lang-ISO-code
                   specialization:
-                    $ref: "#/components/schemas/LocalizedName"
+                    $ref: "#/components/schemas/NameWithDictionaryId"
                   catToolName:
                     type: string
                   mtEngineName:
@@ -244,19 +236,20 @@ components:
                       weighedQuantity:
                         type: number
               serviceName:
-                $ref: "#/components/schemas/LocalizedName"
+                $ref: "#/components/schemas/NameWithDictionaryId"
               serviceSpecification:
                 type: object
-                required: [sourceLanguage, targetLanguage, specialization]
                 properties:
                   sourceLanguage:
                     type: string
                     format: lang-ISO-code
                   targetLanguage:
-                    type: string
-                    format: lang-ISO-code
+                    type: array
+                    items:
+                      type: string
+                      format: lang-ISO-code
                   specialization:
-                    $ref: "#/components/schemas/LocalizedName"
+                    $ref: "#/components/schemas/NameWithDictionaryId"
                   catToolName:
                     type: string
                   mtEngineName:
@@ -312,7 +305,7 @@ components:
                 required: [project]
                 properties:
                   project:
-                    required: [id, name, number, urls, services, dates, client]
+                    required: [id, name, number, urls, services, client]
                     $ref: "#/components/schemas/Project"
 
     project.Archived:
@@ -433,7 +426,7 @@ components:
                 const: tms.event.project.status.opened
               event:
                 type: object
-                required: [projectId, newStatus, previousStatus]
+                required: [projectId, newStatus]
                 properties:
                   projectId:
                     type: string
@@ -442,7 +435,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -460,7 +453,7 @@ components:
                 const: tms.event.project.status.started
               event:
                 type: object
-                required: [projectId, newStatus, previousStatus]
+                required: [projectId, newStatus]
                 properties:
                   projectId:
                     type: string
@@ -469,7 +462,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -487,7 +480,7 @@ components:
                 const: tms.event.project.status.closed
               event:
                 type: object
-                required: [projectId, newStatus, previousStatus]
+                required: [projectId, newStatus]
                 properties:
                   projectId:
                     type: string
@@ -496,7 +489,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -514,7 +507,7 @@ components:
                 const: tms.event.project.status.reopened
               event:
                 type: object
-                required: [projectId, newStatus, previousStatus]
+                required: [projectId, newStatus]
                 properties:
                   projectId:
                     type: string
@@ -523,14 +516,14 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
-    project.StatusCanceled:
+    project.StatusCancelled:
       description: |
         * TMS should send it when: Project status was changed to a status that means the project was calceled
-        * XTRF sends it when: Project status was changed to Canceled or Quote status was changed to Rejected
+        * XTRF sends it when: Project status was changed to Cancelled or Quote status was changed to Rejected
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
@@ -538,10 +531,10 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.project.status.canceled
+                const: tms.event.project.status.cancelled
               event:
                 type: object
-                required: [projectId, newStatus, previousStatus]
+                required: [projectId, newStatus]
                 properties:
                   projectId:
                     type: string
@@ -550,7 +543,7 @@ components:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -571,7 +564,7 @@ components:
                 required: [job]
                 properties:
                   job:
-                    required: [id, projectId, name, number, urls, services, dates]
+                    required: [id, projectId, name, number, urls, services]
                     $ref: "#/components/schemas/Job"
 
     job.Archived:
@@ -694,16 +687,19 @@ components:
                 const: tms.event.job.status.opened
               event:
                 type: object
-                required: [jobId, newStatus, previousStatus]
+                required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
+                    type: string
+                    format: UUID
+                  projectId:
                     type: string
                     format: UUID
                   newStatus:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -721,16 +717,19 @@ components:
                 const: tms.event.job.status.started
               event:
                 type: object
-                required: [jobId, newStatus, previousStatus]
+                required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
+                    type: string
+                    format: UUID
+                  projectId:
                     type: string
                     format: UUID
                   newStatus:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -748,16 +747,19 @@ components:
                 const: tms.event.job.status.closed
               event:
                 type: object
-                required: [jobId, newStatus, previousStatus]
+                required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
+                    type: string
+                    format: UUID
+                  projectId:
                     type: string
                     format: UUID
                   newStatus:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
@@ -775,23 +777,26 @@ components:
                 const: tms.event.job.status.reopened
               event:
                 type: object
-                required: [jobId, newStatus, previousStatus]
+                required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
+                    type: string
+                    format: UUID
+                  projectId:
                     type: string
                     format: UUID
                   newStatus:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
-    job.StatusCanceled:
+    job.StatusCancelled:
       description: |
-        * TMS should send it when: Job status was changed to a status that means the job was canceled
-        * XTRF sends it when: Job status was changed to Canceled
+        * TMS should send it when: Job status was changed to a status that means the job was cancelled
+        * XTRF sends it when: Job status was changed to Cancelled
       payload:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
@@ -799,19 +804,22 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.status.canceled
+                const: tms.event.job.status.cancelled
               event:
                 type: object
-                required: [jobId, newStatus, previousStatus]
+                required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
+                    type: string
+                    format: UUID
+                  projectId:
                     type: string
                     format: UUID
                   newStatus:
                     type: string
                   previousStatus:
                     type: string
-                  occuredAt:
+                  occurredAt:
                     type: string
                     format: date-time
 
