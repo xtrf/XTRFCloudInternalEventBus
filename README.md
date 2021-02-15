@@ -9,6 +9,8 @@ It is a pubsub topic aggregating events produced from different applications:
 
 Specifications are written using [AsyncAPI](https://www.asyncapi.com/).
 
+Specification as HTML Docs: https://xtrf.github.io/XTRFCloudInternalEventBus/
+
 ## Documentation
 
 - [Event versioning](doc/versioning.md)
