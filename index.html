@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   
-  <title>Chat 2.0 Events docs version 1.1.2 documentation</title>
+  <title>Chat 2.0 Events docs version 1.1.3 documentation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="css/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/atom-one-dark.min.css" />
+  <link href="css/main.min.css" rel="stylesheet">
   
 </head>
 <body>
@@ -27,7 +26,7 @@
   <div class="sidebar-panel__content">
     
       <h1 class="text-2xl font-thin">
-        Chat 2.0 Events docs version 1.1.2
+        Chat 2.0 Events docs version 1.1.3
       </h1>
     
     <ul class="text-sm mt-10 mt-2">
@@ -263,7 +262,7 @@
     <div class="content-panel flex-1 leading-loose z-10">
       <div class="center-block p-8">
   <a name="introduction"></a>
-  <h1>Chat 2.0 Events docs version 1.1.2</h1>
+  <h1>Chat 2.0 Events docs version 1.1.3</h1>
   <div class="leading-normal mb-4">
     
     
@@ -1914,7 +1913,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weightedQuantity</span
         >
             
       </div>
@@ -2091,7 +2090,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -2390,7 +2389,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -2917,9 +2916,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -2958,9 +2955,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -4825,153 +4820,6 @@ string
   </div>
 </div>
 
-      
-
-<div
-  class="bg-gray-200 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class="js-prop cursor-pointer py-2 flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >location</span
-        >
-          
-        <svg
-          class="expand inline align-baseline"
-          version="1.1"
-          viewBox="0 0 24 24"
-          x="0"
-          xmlns="http://www.w3.org/2000/svg"
-          y="0"
-        >
-          <polygon
-            points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "
-          ></polygon>
-        </svg>
-         
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-object   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-    <div
-      class="children bg-gray-100 py-4 rounded"
-    >
-           
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >country</span
-        >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >city</span
-        >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-        
-      <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
-        Additional properties are allowed.
-      </p>
-        
-       
-    </div>
-    
-  </div>
-</div>
-
         
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
@@ -5906,7 +5754,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project info was updated</li>
-<li>XTRF sends it when: Project name or number was updated</li>
+<li>XTRF sends it when: Project info was updated (excluding information for which there are specific events, for ex. status)</li>
 </ul>
 </div>
   
@@ -7465,7 +7313,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weightedQuantity</span
         >
             
       </div>
@@ -7642,7 +7490,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -7941,7 +7789,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -8466,9 +8314,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -8507,9 +8353,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -8630,7 +8474,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was opened</li>
-<li>XTRF sends it when: Project status was changed to Opened, Quote status was changed to Pending or Sent, or Quote was converted into a Project</li>
+<li>XTRF sends it when: After Project or Quote was Created</li>
 </ul>
 </div>
   
@@ -9567,7 +9411,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was started</li>
-<li>XTRF sends it when: Project status was changed to Started</li>
+<li>XTRF sends it when: in Project job will be started for the first time or when converting quote to project there will be any started job</li>
 </ul>
 </div>
   
@@ -11441,7 +11285,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was reopened</li>
-<li>XTRF sends it when: Project status was changed to Reopened or Quote was unrejected (reopened)</li>
+<li>XTRF sends it when: Project status was changed to Open or Quote status was changed to Pending</li>
 </ul>
 </div>
   
@@ -14928,7 +14772,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weigthedQuantity</span
         >
             
       </div>
@@ -15105,7 +14949,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -15239,7 +15083,7 @@ string
         <span
           class="text-sm"
           style="word-break: break-word"
-          >targetLanguage</span
+          >targetLanguages</span
         >
           
         <svg
@@ -15463,7 +15307,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -16702,6 +16546,53 @@ string
   </div>
 </div>
 
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
         
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
@@ -17521,6 +17412,53 @@ string
 >
   <div class="">
     <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
       class="js-prop cursor-pointer py-2 flex property"
     >
       <div class="pr-4" style="margin-top: -2px; min-width: 25%">
@@ -17806,9 +17744,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -17847,9 +17783,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -18674,6 +18608,53 @@ object
           class="text-sm"
           style="word-break: break-word"
           >jobId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -20424,7 +20405,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weigthedQuantity</span
         >
             
       </div>
@@ -20601,7 +20582,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -20735,7 +20716,7 @@ string
         <span
           class="text-sm"
           style="word-break: break-word"
-          >targetLanguage</span
+          >targetLanguages</span
         >
           
         <svg
@@ -20959,7 +20940,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -27125,6 +27106,53 @@ string
 >
   <div class="">
     <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
       class="js-prop cursor-pointer py-2 flex property"
     >
       <div class="pr-4" style="margin-top: -2px; min-width: 25%">
@@ -27345,8 +27373,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>To be defined...</p>
-</div>
+<div class="text-sm markdown"></div>
 
     
       </div>
@@ -27356,7 +27383,136 @@ object
     <div
       class="children bg-gray-100 py-4 rounded"
     >
-             
+           
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >category</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >sourceLanguage</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >lang-ISO-code</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >targetLanguage</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >lang-ISO-code</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+        
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
       </p>
@@ -28157,6 +28313,53 @@ object
           class="text-sm"
           style="word-break: break-word"
           >jobId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -29082,11 +29285,7 @@ object
           style="word-break: break-word"
           >user</span
         >
-         
-        <span class="border text-orange-600 rounded text-xs ml-3 py-0 px-2"
-          >User</span
-        >
-         
+          
         <svg
           class="expand inline align-baseline"
           version="1.1"
@@ -29126,63 +29325,6 @@ object
       class="children bg-gray-200 py-4 rounded"
     >
            
-
-<div
-  class="bg-gray-200 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >role</span
-        >
-         
-        <span class="border text-orange-600 rounded text-xs ml-3 py-0 px-2"
-          >UserRole</span
-        >
-          
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-   
-        <div class="text-xs">
-          Enum: 
-          <span class="border text-orange-600 rounded ml-1 py-0 px-2"
-            >"manager"</span
-          >
-          
-          <span class="border text-orange-600 rounded ml-1 py-0 px-2"
-            >"vendor"</span
-          >
-          
-        </div>
-         
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
 
 <div
   class="bg-gray-200 pl-8 pr-8 rounded"
@@ -29344,7 +29486,7 @@ string
             "calculationUnit": "string",
             "quantity": {
               "totalQuantity": 0,
-              "weighedQuantity": 0
+              "weightedQuantity": 0
             }
           },
           "serviceName": {
@@ -29462,11 +29604,7 @@ string
     "manager": {
       "id": "string",
       "name": "string",
-      "email": "string",
-      "location": {
-        "country": "string",
-        "city": "string"
-      }
+      "email": "string"
     }
   }
 }</code></pre>
@@ -29572,7 +29710,7 @@ string
             "calculationUnit": "string",
             "quantity": {
               "totalQuantity": 0,
-              "weighedQuantity": 0
+              "weightedQuantity": 0
             }
           },
           "serviceName": {
@@ -29888,7 +30026,7 @@ string
             "calculationUnit": "string",
             "quantity": {
               "totalQuantity": 0,
-              "weighedQuantity": 0
+              "weigthedQuantity": 0
             }
           },
           "serviceName": {
@@ -29897,7 +30035,7 @@ string
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
-            "targetLanguage": [
+            "targetLanguages": [
               "string"
             ],
             "specialization": {
@@ -29958,7 +30096,8 @@ string
   "metadata": {},
   "causedBy": "string",
   "event": {
-    "jobId": "string"
+    "jobId": "string",
+    "projectId": "string"
   }
 }</code></pre>
         <h6 class="text-xs font-bold text-gray-700 italic">This example has been generated automatically.</h6>
@@ -30000,6 +30139,7 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "vendor": {
       "id": "string",
       "name": "string",
@@ -30051,6 +30191,7 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "vendorId": "string"
   }
 }</code></pre>
@@ -30115,7 +30256,7 @@ string
             "calculationUnit": "string",
             "quantity": {
               "totalQuantity": 0,
-              "weighedQuantity": 0
+              "weigthedQuantity": 0
             }
           },
           "serviceName": {
@@ -30124,7 +30265,7 @@ string
           },
           "serviceSpecification": {
             "sourceLanguage": "string",
-            "targetLanguage": [
+            "targetLanguages": [
               "string"
             ],
             "specialization": {
@@ -30411,12 +30552,17 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "files": [
       {
         "id": "string",
         "name": "string",
         "url": "string",
-        "properties": {}
+        "properties": {
+          "category": "string",
+          "sourceLanguage": "string",
+          "targetLanguage": "string"
+        }
       }
     ]
   }
@@ -30460,6 +30606,7 @@ string
   "causedBy": "string",
   "event": {
     "jobId": "string",
+    "projectId": "string",
     "fileIds": [
       "string"
     ]
@@ -30504,7 +30651,6 @@ string
   "causedBy": "string",
   "event": {
     "user": {
-      "role": "manager",
       "id": "string"
     }
   }
@@ -32133,7 +32279,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weightedQuantity</span
         >
             
       </div>
@@ -32310,7 +32456,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -32609,7 +32755,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -33136,9 +33282,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -33177,9 +33321,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -35046,153 +35188,6 @@ string
   </div>
 </div>
 
-      
-
-<div
-  class="bg-gray-200 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class="js-prop cursor-pointer py-2 flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >location</span
-        >
-          
-        <svg
-          class="expand inline align-baseline"
-          version="1.1"
-          viewBox="0 0 24 24"
-          x="0"
-          xmlns="http://www.w3.org/2000/svg"
-          y="0"
-        >
-          <polygon
-            points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "
-          ></polygon>
-        </svg>
-         
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-object   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-    <div
-      class="children bg-gray-100 py-4 rounded"
-    >
-           
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >country</span
-        >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
-
-<div
-  class="bg-gray-100 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >city</span
-        >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-string   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-    
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-        
-      <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
-        Additional properties are allowed.
-      </p>
-        
-       
-    </div>
-    
-  </div>
-</div>
-
         
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
@@ -36129,7 +36124,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project info was updated</li>
-<li>XTRF sends it when: Project name or number was updated</li>
+<li>XTRF sends it when: Project info was updated (excluding information for which there are specific events, for ex. status)</li>
 </ul>
 </div>
   
@@ -37688,7 +37683,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weightedQuantity</span
         >
             
       </div>
@@ -37865,7 +37860,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -38164,7 +38159,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -38689,9 +38684,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -38730,9 +38723,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -38854,7 +38845,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was opened</li>
-<li>XTRF sends it when: Project status was changed to Opened, Quote status was changed to Pending or Sent, or Quote was converted into a Project</li>
+<li>XTRF sends it when: After Project or Quote was Created</li>
 </ul>
 </div>
   
@@ -39792,7 +39783,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was started</li>
-<li>XTRF sends it when: Project status was changed to Started</li>
+<li>XTRF sends it when: in Project job will be started for the first time or when converting quote to project there will be any started job</li>
 </ul>
 </div>
   
@@ -41668,7 +41659,7 @@ string
 
   <div class="mt-4 mb-4 markdown"><ul>
 <li>TMS should send it when: Project status was changed to a status that means the project was reopened</li>
-<li>XTRF sends it when: Project status was changed to Reopened or Quote was unrejected (reopened)</li>
+<li>XTRF sends it when: Project status was changed to Open or Quote status was changed to Pending</li>
 </ul>
 </div>
   
@@ -45157,7 +45148,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weigthedQuantity</span
         >
             
       </div>
@@ -45334,7 +45325,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -45468,7 +45459,7 @@ string
         <span
           class="text-sm"
           style="word-break: break-word"
-          >targetLanguage</span
+          >targetLanguages</span
         >
           
         <svg
@@ -45692,7 +45683,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -46932,6 +46923,53 @@ string
   </div>
 </div>
 
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
         
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
@@ -47752,6 +47790,53 @@ string
 >
   <div class="">
     <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
       class="js-prop cursor-pointer py-2 flex property"
     >
       <div class="pr-4" style="margin-top: -2px; min-width: 25%">
@@ -48037,9 +48122,7 @@ object
           style="word-break: break-word"
           >country</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -48078,9 +48161,7 @@ string
           style="word-break: break-word"
           >city</span
         >
-           
-        <div class="text-red-600 text-xs">required</div>
-         
+            
       </div>
 
       <div>
@@ -48906,6 +48987,53 @@ object
           class="text-sm"
           style="word-break: break-word"
           >jobId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -50657,7 +50785,7 @@ number
         <span
           class="text-sm"
           style="word-break: break-word"
-          >weighedQuantity</span
+          >weigthedQuantity</span
         >
             
       </div>
@@ -50834,7 +50962,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -50968,7 +51096,7 @@ string
         <span
           class="text-sm"
           style="word-break: break-word"
-          >targetLanguage</span
+          >targetLanguages</span
         >
           
         <svg
@@ -51192,7 +51320,7 @@ string
 
         
 
-<div class="text-sm markdown"><p>Id for localized names</p>
+<div class="text-sm markdown"><p>Id for localized name</p>
 </div>
 
     
@@ -57364,6 +57492,53 @@ string
 >
   <div class="">
     <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
       class="js-prop cursor-pointer py-2 flex property"
     >
       <div class="pr-4" style="margin-top: -2px; min-width: 25%">
@@ -57584,8 +57759,7 @@ object
 
         
 
-<div class="text-sm markdown"><p>To be defined...</p>
-</div>
+<div class="text-sm markdown"></div>
 
     
       </div>
@@ -57595,7 +57769,136 @@ object
     <div
       class="children bg-gray-100 py-4 rounded"
     >
-             
+           
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >category</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >sourceLanguage</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >lang-ISO-code</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >targetLanguage</span
+        >
+            
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >lang-ISO-code</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+        
       <p class="pl-6 mb-2 mt-4 text-xs text-gray-700">
         Additional properties are allowed.
       </p>
@@ -58397,6 +58700,53 @@ object
           class="text-sm"
           style="word-break: break-word"
           >jobId</span
+        >
+           
+        <div class="text-red-600 text-xs">required</div>
+         
+      </div>
+
+      <div>
+        <div class="capitalize text-sm text-teal-500 font-bold">
+          
+string   
+          <div class="inline-block">
+            
+            <span
+              class="bg-yellow-600 font-bold no-underline text-black rounded lowercase ml-2"
+              style="height: 20px; font-size: 11px; padding: 3px"
+              >UUID</span
+            >
+                      
+          </div>
+        </div>
+
+        
+
+<div class="text-sm markdown"></div>
+
+    
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+      
+
+<div
+  class="bg-gray-100 pl-8 pr-8 rounded"
+>
+  <div class="">
+    <div
+      class=" flex property"
+    >
+      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
+        <span
+          class="text-sm"
+          style="word-break: break-word"
+          >projectId</span
         >
            
         <div class="text-red-600 text-xs">required</div>
@@ -59323,11 +59673,7 @@ object
           style="word-break: break-word"
           >user</span
         >
-         
-        <span class="border text-orange-600 rounded text-xs ml-3 py-0 px-2"
-          >User</span
-        >
-         
+          
         <svg
           class="expand inline align-baseline"
           version="1.1"
@@ -59367,63 +59713,6 @@ object
       class="children bg-gray-200 py-4 rounded"
     >
            
-
-<div
-  class="bg-gray-200 pl-8 pr-8 rounded"
->
-  <div class="">
-    <div
-      class=" flex property"
-    >
-      <div class="pr-4" style="margin-top: -2px; min-width: 25%">
-        <span
-          class="text-sm"
-          style="word-break: break-word"
-          >role</span
-        >
-         
-        <span class="border text-orange-600 rounded text-xs ml-3 py-0 px-2"
-          >UserRole</span
-        >
-          
-        <div class="text-red-600 text-xs">required</div>
-         
-      </div>
-
-      <div>
-        <div class="capitalize text-sm text-teal-500 font-bold">
-          
-   
-          <div class="inline-block">
-                      
-          </div>
-        </div>
-
-        
-
-<div class="text-sm markdown"></div>
-
-   
-        <div class="text-xs">
-          Enum: 
-          <span class="border text-orange-600 rounded ml-1 py-0 px-2"
-            >"manager"</span
-          >
-          
-          <span class="border text-orange-600 rounded ml-1 py-0 px-2"
-            >"vendor"</span
-          >
-          
-        </div>
-         
-      </div>
-    </div>
-
-    
-  </div>
-</div>
-
-      
 
 <div
   class="bg-gray-200 pl-8 pr-8 rounded"
