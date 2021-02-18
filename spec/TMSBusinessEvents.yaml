@@ -233,7 +233,7 @@ components:
                     properties:
                       totalQuantity:
                         type: number
-                      weigthedQuantity:
+                      weightedQuantity:
                         type: number
               serviceName:
                 $ref: "#/components/schemas/NameWithDictionaryId"
