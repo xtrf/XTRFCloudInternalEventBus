@@ -138,14 +138,15 @@ components:
                 $ref: "#/components/schemas/NameWithDictionaryId"
               serviceSpecification:
                 type: object
-                required: [sourceLanguage, targetLanguage, specialization]
                 properties:
                   sourceLanguage:
                     type: string
                     format: lang-ISO-code
-                  targetLanguage:
-                    type: string
-                    format: lang-ISO-code
+                  targetLanguages:
+                    type: array
+                    items:
+                      type: string
+                      format: lang-ISO-code
                   specialization:
                     $ref: "#/components/schemas/NameWithDictionaryId"
                   catToolName:
