@@ -100,6 +100,20 @@ components:
               type: string
             managerView:
               type: string
+        sourceLanguages:
+            type: array
+            items:
+                type: string
+                format: lang-ISO-code
+        targetLanguages:
+            type: array
+            items:
+                type: string
+                format: lang-ISO-code
+        specializations:
+            type: array
+            items:
+                $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
           type: object
           properties:
@@ -142,11 +156,9 @@ components:
                   sourceLanguage:
                     type: string
                     format: lang-ISO-code
-                  targetLanguages:
-                    type: array
-                    items:
-                      type: string
-                      format: lang-ISO-code
+                  targetLanguage:
+                    type: string
+                    format: lang-ISO-code
                   specialization:
                     $ref: "#/components/schemas/NameWithDictionaryId"
                   catToolName:
@@ -203,6 +215,18 @@ components:
               type: string
             vendorView:
               type: string
+        sourceLanguages:
+          type: array
+          items:
+            type: string
+            format: lang-ISO-code
+        targetLanguages:
+          type: array
+          items:
+            type: string
+            format: lang-ISO-code
+        specialization:
+          $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
           type: object
           properties:
@@ -243,11 +267,9 @@ components:
                   sourceLanguage:
                     type: string
                     format: lang-ISO-code
-                  targetLanguages:
-                    type: array
-                    items:
-                      type: string
-                      format: lang-ISO-code
+                  targetLanguage:
+                    type: string
+                    format: lang-ISO-code
                   specialization:
                     $ref: "#/components/schemas/NameWithDictionaryId"
                   catToolName:
