@@ -65,7 +65,8 @@ components:
           type: number
           description: "Event revision used for Event schema versioning and upcasting. Null means this is the first revision of the event"
         metadata:
-          type: object
+          #type: any - if there is no type its interpreated by libraries as any
+          $id: EventEnvelopeMetadata
           description: "Other, client defined data"
         causedBy:
           type: string
