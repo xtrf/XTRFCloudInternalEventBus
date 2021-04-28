@@ -90,6 +90,7 @@ components:
     Project:
       $id: Project
       type: object
+      required: [number]
       properties:
         id:
           type: string
