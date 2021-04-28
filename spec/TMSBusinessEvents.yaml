@@ -90,7 +90,6 @@ components:
     Project:
       $id: Project
       type: object
-      required: [number]
       properties:
         id:
           type: string
@@ -445,7 +444,7 @@ components:
                 properties:
                   project:
                     description: "Only fields that have changed"
-                    required: [id]
+                    required: [id, name, number, urls, client]
                     $ref: "#/components/schemas/Project"
 
     project.StatusOpened:
