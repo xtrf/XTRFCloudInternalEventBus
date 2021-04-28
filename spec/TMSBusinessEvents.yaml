@@ -325,7 +325,7 @@ components:
         * TMS should send it when: Project was created
         * XTRF sends it when: Project or Quote was created
       payload:
-        $id: projectCreated
+        $id: MessageProjectCreated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -347,7 +347,7 @@ components:
         * TMS should send it when: Project was archived, deactivated, removed or deleted
         * XTRF sends it when: Project was archived or deleted
       payload:
-        $id: projectArchived
+        $id: MessageProjectArchived
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -369,7 +369,7 @@ components:
         * TMS should send it when: Project Manager was assigned to a Project
         * XTRF sends it when: Project Manager or Project Coordinator was assigned to a Project/Quote
       payload:
-        $id: projectManagerAssigned
+        $id: MessageProjectManagerAssigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -404,7 +404,7 @@ components:
         * TMS should send it when: Project Manager was unassigned from a Project
         * XTRF sends it when: Project Manager or Project Coordinator was unassigned from a Project/Quote
       payload:
-        $id: projectManagerUnassigned
+        $id: MessageProjectManagerUnassigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -429,7 +429,7 @@ components:
         * TMS should send it when: Project info was updated
         * XTRF sends it when: Project info was updated (excluding information for which there are specific events, for ex. status)
       payload:
-        $id: projectInfoUpdated
+        $id: MessageProjectInfoUpdated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -452,7 +452,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was opened
         * XTRF sends it when: After Project or Quote was Created
       payload:
-        $id: projectStatusOpened
+        $id: MessageProjectStatusOpened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -481,7 +481,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was started
         * XTRF sends it when: in Project job will be started for the first time or when converting quote to project there will be any started job
       payload:
-        $id: projectStatusStarted
+        $id: MessageProjectStatusStarted
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -510,7 +510,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was closed
         * XTRF sends it when: Project status was changed to Closed
       payload:
-        $id: projectStatusClosed
+        $id: MessageProjectStatusClosed
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -539,7 +539,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was reopened
         * XTRF sends it when: Project status was changed to Open or Quote status was changed to Pending
       payload:
-        $id: projectStatusReopened
+        $id: MessageProjectStatusReopened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -568,7 +568,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was calceled
         * XTRF sends it when: Project status was changed to Cancelled or Quote status was changed to Rejected
       payload:
-        $id: projectStatusCancelled
+        $id: MessageProjectStatusCancelled
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -597,7 +597,7 @@ components:
         * TMS should send it when: Job was created
         * XTRF sends it when: Job was created (in Project or Quote)
       payload:
-        $id: jobCreated
+        $id: MessageJobCreated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -619,7 +619,7 @@ components:
         * TMS should send it when: Job was archived, deactivated, removed or deleted. Should be sent if the job was archived as a consequence of archiving a project.
         * XTRF sends it when: Job was archived or deleted
       payload:
-        $id: jobArchived
+        $id: MessageJobArchived
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -644,7 +644,7 @@ components:
         * TMS should send it when: Vendor was assigned to a Job in a Project
         * XTRF sends it when: Vendor Contact Person was assigned to a Job in a Project/Quote
       payload:
-        $id: jobAssigned
+        $id: MessageJobAssigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -692,7 +692,7 @@ components:
         * TMS should send it when: Vendor was unassigned from a Job in a Project
         * XTRF sends it when: Vendor Contact Person was unassigned from a Job in a Project/Quote
       payload:
-        $id: jobVendorUnassigned
+        $id: MessageJobVendorUnassigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -720,7 +720,7 @@ components:
         * TMS should send it when: Job info was updated
         * XTRF sends it when: Job type, number, languages or specializations were updated
       payload:
-        $id: jobInfoUpdated
+        $id: MessageJobInfoUpdated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -743,7 +743,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was opened
         * XTRF sends it when: Job status was changed to Opened, Requested or Assigned
       payload:
-        $id: jobStatusOpened
+        $id: MessageJobStatusOpened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -775,7 +775,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was started
         * XTRF sends it when: Job status was changed to Started
       payload:
-        $id: jobStatusStarted
+        $id: MessageJobStatusStarted
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -807,7 +807,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was closed
         * XTRF sends it when: Job status was changed to Ready
       payload:
-        $id: jobStatusClosed
+        $id: MessageJobStatusClosed
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -839,7 +839,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was reopened
         * XTRF sends it when: Job was reopened
       payload:
-        $id: jobStatusReopened
+        $id: MessageJobStatusReopened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -871,7 +871,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was cancelled
         * XTRF sends it when: Job status was changed to Cancelled
       payload:
-        $id: jobStatusCancelled
+        $id: MessageJobStatusCancelled
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -903,7 +903,7 @@ components:
         * TMS should send it when: A file was added to a Job
         * XTRF sends it when: A file was added to a Job
       payload:
-        $id: jobFilesAdded
+        $id: MessageJobFilesAdded
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -960,7 +960,7 @@ components:
         * TMS should send it when: A file was removed from a Job
         * XTRF sends it when: A file was removed from a Job
       payload:
-        $id: jobFilesRemoved
+        $id: MessageJobFilesRemoved
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -990,7 +990,7 @@ components:
         * TMS should send it when: User was deleted, erased or deactivated in the TMS and has to be removed from the Workspace.
         * XTRF sends it when: HP User or Vendor Contact Person was deleted or erased
       payload:
-        $id: userDeletedOrErased
+        $id: MessageUserDeletedOrErased
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
