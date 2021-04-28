@@ -181,49 +181,8 @@ components:
     
 
 
-    ProjectCreated:
-      $id: ProjectCreated
+    Project:
       type: object
-      required: [id, name, number, urls, client]
-      properties:
-        id:
-          type: string
-          format: UUID
-        name:
-          type: string
-        number:
-          type: string
-        urls:
-          $ref: "#/components/schemas/ProjectUrls"
-        sourceLanguages:
-            type: array
-            items:
-                type: string
-                format: lang-ISO-code
-        targetLanguages:
-            type: array
-            items:
-                type: string
-                format: lang-ISO-code
-        specializations:
-            type: array
-            items:
-                $ref: "#/components/schemas/NameWithDictionaryId"
-        finance:
-          $ref: "#/components/schemas/ProjectFinance"
-        services:
-          type: array
-          items:
-            $ref: "#/components/schemas/ProjectService"
-        dates:
-          $ref: "#/components/schemas/ProjectDates"
-        client:
-          $ref: "#/components/schemas/ProjectClient"
-
-    ProjectInfoUpdated:
-      $id: ProjectInfoUpdated
-      type: object
-      required: [id]
       properties:
         id:
           type: string
@@ -260,7 +219,6 @@ components:
           $ref: "#/components/schemas/ProjectClient"
 
     Job:
-      $id: Job
       type: object
       properties:
         id:
@@ -390,7 +348,9 @@ components:
                 required: [project]
                 properties:
                   project:
-                    $ref: "#/components/schemas/ProjectCreated"
+                    $id: ProjectCreated
+                    required: [id, name, number, urls, client]
+                    $ref: "#/components/schemas/Project"
 
     project.Archived:
       description: |
@@ -494,7 +454,9 @@ components:
                 properties:
                   project:
                     description: "Only fields that have changed"
-                    $ref: "#/components/schemas/ProjectInfoUpdated"
+                    $id: ProjectInfoUpdated
+                    required: [id]
+                    $ref: "#/components/schemas/Project"
 
     project.StatusOpened:
       description: |
@@ -660,6 +622,7 @@ components:
                 required: [job]
                 properties:
                   job:
+                    $id: JobCreated
                     required: [id, projectId, name, number, urls]
                     $ref: "#/components/schemas/Job"
 
@@ -783,6 +746,7 @@ components:
                 required: [job]
                 properties:
                   job:
+                    $id: JobInfoUpdated
                     description: "Only fields that have changed"
                     required: [id, projectId]
                     $ref: "#/components/schemas/Job"
