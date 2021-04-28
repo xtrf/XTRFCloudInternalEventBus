@@ -81,9 +81,110 @@ components:
           description: "Id for localized name"
           type: string
 
-    Project:
-      $id: Project
+    ProjectUrls:
       type: object
+      $id: ProjectUrls
+      properties:
+        clientView:
+          type: string
+        managerView:
+          type: string
+
+    ProjectFinance:
+      type: object
+      $id: ProjectFinance
+      properties:
+        currency:
+          type: string
+          format: currency-ISO-code
+        summary:
+          $id: ProjectFinanceSummary
+          type: object
+          required: [totalValue]
+          properties:
+            totalValue:
+              type: number
+            totalCost:
+              type: number
+    
+    ProjectService:
+      $id: ProjectService
+      type: object
+      required: [serviceName, serviceSpecification]
+      properties:
+        finance:
+          $id: ProjectFinance
+          type: object
+          properties:
+            totalValue:
+              type: number
+            calculationUnit:
+              type: string
+            quantity:
+              $id: ProjectFinanceQuantity
+              type: object
+              properties:
+                totalQuantity:
+                  type: number
+                weightedQuantity:
+                  type: number
+        serviceName:
+          $ref: "#/components/schemas/NameWithDictionaryId"
+        serviceSpecification:
+          $id: ProjectServiceSpecification
+          type: object
+          properties:
+            sourceLanguage:
+              type: string
+              format: lang-ISO-code
+            targetLanguage:
+              type: string
+              format: lang-ISO-code
+            specialization:
+              $ref: "#/components/schemas/NameWithDictionaryId"
+            catToolName:
+              type: string
+            mtEngineName:
+              type: string
+
+    ProjectDates:
+      $id: ProjectDates
+      type: object
+      properties:
+        plannedStartDate:
+          type: string
+          format: date-time
+        plannedEndDate:
+          type: string
+          format: date-time
+
+    ProjectClient: 
+      $id: ProjectClient
+      type: object
+      required: [id, name, number, location]
+      properties:
+        id:
+          type: string
+          format: UUID
+        name:
+          type: string
+        number:
+          type: string
+        location:
+          $id: ProjectClientLocation
+          type: object
+          properties:
+            country:
+              type: string
+            city:
+              type: string
+    
+
+
+    ProjectCreated:
+      $id: ProjectCreated
+      type: object
+      required: [id, name, number, urls, client]
       properties:
         id:
           type: string
@@ -93,13 +194,7 @@ components:
         number:
           type: string
         urls:
-          type: object
-          $id: ProjectProperties
-          properties:
-            clientView:
-              type: string
-            managerView:
-              type: string
+          $ref: "#/components/schemas/ProjectUrls"
         sourceLanguages:
             type: array
             items:
@@ -115,92 +210,54 @@ components:
             items:
                 $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
-          type: object
-          $id: ProjectFinance
-          properties:
-            currency:
-              type: string
-              format: currency-ISO-code
-            summary:
-              $id: ProjectFinanceSummary
-              type: object
-              required: [totalValue]
-              properties:
-                totalValue:
-                  type: number
-                totalCost:
-                  type: number
+          $ref: "#/components/schemas/ProjectFinance"
         services:
           type: array
           items:
-            $id: ProjectService
-            type: object
-            required: [serviceName, serviceSpecification]
-            properties:
-              finance:
-                $id: ProjectFinance
-                type: object
-                properties:
-                  totalValue:
-                    type: number
-                  calculationUnit:
-                    type: string
-                  quantity:
-                    $id: ProjectFinanceQuantity
-                    type: object
-                    properties:
-                      totalQuantity:
-                        type: number
-                      weightedQuantity:
-                        type: number
-              serviceName:
-                $ref: "#/components/schemas/NameWithDictionaryId"
-              serviceSpecification:
-                $id: ProjectServiceSpecification
-                type: object
-                properties:
-                  sourceLanguage:
-                    type: string
-                    format: lang-ISO-code
-                  targetLanguage:
-                    type: string
-                    format: lang-ISO-code
-                  specialization:
-                    $ref: "#/components/schemas/NameWithDictionaryId"
-                  catToolName:
-                    type: string
-                  mtEngineName:
-                    type: string
+            $ref: "#/components/schemas/ProjectService"
         dates:
-          $id: ProjectDates
-          type: object
-          properties:
-            plannedStartDate:
-              type: string
-              format: date-time
-            plannedEndDate:
-              type: string
-              format: date-time
+          $ref: "#/components/schemas/ProjectDates"
         client:
-          $id: ProjectClient
-          type: object
-          required: [id, name, number, location]
-          properties:
-            id:
-              type: string
-              format: UUID
-            name:
-              type: string
-            number:
-              type: string
-            location:
-              $id: ProjectClientLocation
-              type: object
-              properties:
-                country:
-                  type: string
-                city:
-                  type: string
+          $ref: "#/components/schemas/ProjectClient"
+
+    ProjectInfoUpdated:
+      $id: ProjectInfoUpdated
+      type: object
+      required: [id]
+      properties:
+        id:
+          type: string
+          format: UUID
+        name:
+          type: string
+        number:
+          type: string
+        urls:
+          $ref: "#/components/schemas/ProjectUrls"
+        sourceLanguages:
+            type: array
+            items:
+                type: string
+                format: lang-ISO-code
+        targetLanguages:
+            type: array
+            items:
+                type: string
+                format: lang-ISO-code
+        specializations:
+            type: array
+            items:
+                $ref: "#/components/schemas/NameWithDictionaryId"
+        finance:
+          $ref: "#/components/schemas/ProjectFinance"
+        services:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProjectService"
+        dates:
+          $ref: "#/components/schemas/ProjectDates"
+        client:
+          $ref: "#/components/schemas/ProjectClient"
 
     Job:
       $id: Job
@@ -333,8 +390,7 @@ components:
                 required: [project]
                 properties:
                   project:
-                    required: [id, name, number, urls, client]
-                    $ref: "#/components/schemas/Project"
+                    $ref: "#/components/schemas/ProjectCreated"
 
     project.Archived:
       description: |
@@ -438,8 +494,7 @@ components:
                 properties:
                   project:
                     description: "Only fields that have changed"
-                    required: [id]
-                    $ref: "#/components/schemas/Project"
+                    $ref: "#/components/schemas/ProjectInfoUpdated"
 
     project.StatusOpened:
       description: |
@@ -1005,3 +1060,5 @@ components:
                       id:
                         type: string
                         format: UUID
+
+
