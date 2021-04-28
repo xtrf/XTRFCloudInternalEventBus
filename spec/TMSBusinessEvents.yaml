@@ -644,7 +644,7 @@ components:
         * TMS should send it when: Vendor was assigned to a Job in a Project
         * XTRF sends it when: Vendor Contact Person was assigned to a Job in a Project/Quote
       payload:
-        $id: MessageJobAssigned
+        $id: MessageJobVendorAssigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -653,7 +653,7 @@ components:
               eventName:
                 const: tms.event.job.vendorAssigned
               event:
-                $id: EventVendorAssigned
+                $id: EventJobVendorAssigned
                 type: object
                 required: [jobId, projectId, vendor]
                 properties:
