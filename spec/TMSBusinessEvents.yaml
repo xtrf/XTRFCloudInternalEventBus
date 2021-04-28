@@ -41,12 +41,6 @@ components:
       $id: EventEnvelope
       description: "Envelope shared between messages"
       type: object
-      required:
-        - eventName
-        - eventId
-        - timestamp
-        - workspaceId
-        - event
       properties:
         eventName:
           type: string
@@ -444,7 +438,7 @@ components:
                 properties:
                   project:
                     description: "Only fields that have changed"
-                    required: [id, name, number, urls, client]
+                    required: [id]
                     $ref: "#/components/schemas/Project"
 
     project.StatusOpened:
