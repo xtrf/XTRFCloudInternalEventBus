@@ -69,18 +69,6 @@ components:
           $id: Event
           type: object
 
-    # NameWithDictionaryId:
-    #   $id: NameWithDictionaryId
-    #   description: "Object that stores not localized name and id for localizations"
-    #   type: object
-    #   required: [notLocalized]
-    #   properties:
-    #     notLocalized:
-    #       type: string
-    #     dictionaryId:
-    #       description: "Id for localized name"
-    #       type: string
-
     ProjectUrls:
       type: object
       $id: ProjectUrls
@@ -135,6 +123,7 @@ components:
           required: [notLocalized]
           properties:
             notLocalized:
+              minLength: 0
               type: string
             dictionaryId:
               description: "Id for localized name"
@@ -156,6 +145,7 @@ components:
               required: [notLocalized]
               properties:
                 notLocalized:
+                  minLength: 0
                   type: string
                 dictionaryId:
                   description: "Id for localized name"
@@ -233,6 +223,7 @@ components:
               required: [notLocalized]
               properties:
                 notLocalized:
+                  minLength: 0
                   type: string
                 dictionaryId:
                   description: "Id for localized name"
@@ -288,6 +279,7 @@ components:
           required: [notLocalized]
           properties:
             notLocalized:
+              minLength: 0
               type: string
             dictionaryId:
               description: "Id for localized name"
@@ -336,6 +328,7 @@ components:
                 required: [notLocalized]
                 properties:
                   notLocalized:
+                    minLength: 0
                     type: string
                   dictionaryId:
                     description: "Id for localized name"
@@ -357,6 +350,7 @@ components:
                     required: [notLocalized]
                     properties:
                       notLocalized:
+                        minLength: 0
                         type: string
                       dictionaryId:
                         description: "Id for localized name"
