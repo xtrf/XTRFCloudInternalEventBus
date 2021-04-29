@@ -69,17 +69,17 @@ components:
           $id: Event
           type: object
 
-    NameWithDictionaryId:
-      $id: NameWithDictionaryId
-      description: "Object that stores not localized name and id for localizations"
-      type: object
-      required: [notLocalized]
-      properties:
-        notLocalized:
-          type: string
-        dictionaryId:
-          description: "Id for localized name"
-          type: string
+    # NameWithDictionaryId:
+    #   $id: NameWithDictionaryId
+    #   description: "Object that stores not localized name and id for localizations"
+    #   type: object
+    #   required: [notLocalized]
+    #   properties:
+    #     notLocalized:
+    #       type: string
+    #     dictionaryId:
+    #       description: "Id for localized name"
+    #       type: string
 
     ProjectUrls:
       type: object
@@ -129,7 +129,16 @@ components:
                 weightedQuantity:
                   type: number
         serviceName:
-          $ref: "#/components/schemas/NameWithDictionaryId"
+          $id: NameWithDictionaryId
+          description: "Object that stores not localized name and id for localizations"
+          type: object
+          required: [notLocalized]
+          properties:
+            notLocalized:
+              type: string
+            dictionaryId:
+              description: "Id for localized name"
+              type: string
         serviceSpecification:
           $id: ProjectServiceSpecification
           type: object
@@ -141,7 +150,16 @@ components:
               type: string
               format: lang-ISO-code
             specialization:
-              $ref: "#/components/schemas/NameWithDictionaryId"
+              $id: NameWithDictionaryId
+              description: "Object that stores not localized name and id for localizations"
+              type: object
+              required: [notLocalized]
+              properties:
+                notLocalized:
+                  type: string
+                dictionaryId:
+                  description: "Id for localized name"
+                  type: string
             catToolName:
               type: string
             mtEngineName:
@@ -206,7 +224,16 @@ components:
         specializations:
             type: array
             items:
-              $ref: "#/components/schemas/NameWithDictionaryId"
+              $id: NameWithDictionaryId
+              description: "Object that stores not localized name and id for localizations"
+              type: object
+              required: [notLocalized]
+              properties:
+                notLocalized:
+                  type: string
+                dictionaryId:
+                  description: "Id for localized name"
+                  type: string
         finance:
           $ref: "#/components/schemas/ProjectFinance"
         services:
@@ -252,7 +279,16 @@ components:
             type: string
             format: lang-ISO-code
         specialization:
-          $ref: "#/components/schemas/NameWithDictionaryId"
+          $id: NameWithDictionaryId
+          description: "Object that stores not localized name and id for localizations"
+          type: object
+          required: [notLocalized]
+          properties:
+            notLocalized:
+              type: string
+            dictionaryId:
+              description: "Id for localized name"
+              type: string
         finance:
           $id: JobFinance
           type: object
@@ -291,7 +327,16 @@ components:
                       weightedQuantity:
                         type: number
               serviceName:
-                $ref: "#/components/schemas/NameWithDictionaryId"
+                $id: NameWithDictionaryId
+                description: "Object that stores not localized name and id for localizations"
+                type: object
+                required: [notLocalized]
+                properties:
+                  notLocalized:
+                    type: string
+                  dictionaryId:
+                    description: "Id for localized name"
+                    type: string
               serviceSpecification:
                 $id: JobServiceSpecification
                 type: object
@@ -303,7 +348,16 @@ components:
                     type: string
                     format: lang-ISO-code
                   specialization:
-                    $ref: "#/components/schemas/NameWithDictionaryId"
+                    $id: NameWithDictionaryId
+                    description: "Object that stores not localized name and id for localizations"
+                    type: object
+                    required: [notLocalized]
+                    properties:
+                      notLocalized:
+                        type: string
+                      dictionaryId:
+                        description: "Id for localized name"
+                        type: string
                   catToolName:
                     type: string
                   mtEngineName:
