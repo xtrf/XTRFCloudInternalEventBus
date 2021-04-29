@@ -196,17 +196,17 @@ components:
         sourceLanguages:
             type: array
             items:
-                type: string
-                format: lang-ISO-code
+              type: string
+              format: lang-ISO-code
         targetLanguages:
             type: array
             items:
-                type: string
-                format: lang-ISO-code
+              type: string
+              format: lang-ISO-code
         specializations:
             type: array
             items:
-                $ref: "#/components/schemas/NameWithDictionaryId"
+              $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
           $ref: "#/components/schemas/ProjectFinance"
         services:
