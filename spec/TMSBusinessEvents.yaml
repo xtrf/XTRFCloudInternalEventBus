@@ -37,10 +37,11 @@ channels:
 
 components:
   schemas:
-    EventEnvelope:
+    EventEnvelope:      
       $id: EventEnvelope
       description: "Envelope shared between messages"
       type: object
+      required: [eventName, eventId, timestamp, workspaceId, event]
       properties:
         eventName:
           type: string
