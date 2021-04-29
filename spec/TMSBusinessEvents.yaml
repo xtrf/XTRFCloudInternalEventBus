@@ -184,10 +184,13 @@ components:
         id:
           type: string
           format: UUID
+          minLength: 0
         name:
           type: string
+          minLength: 0
         number:
           type: string
+          minLength: 0
         location:
           $id: ProjectClientLocation
           type: object
