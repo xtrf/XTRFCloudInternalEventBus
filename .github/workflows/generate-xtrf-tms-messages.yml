@@ -1,0 +1,33 @@
+name: Generate @xtrf/tms-messages package from YAML
+on: 
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Create .npmrc file
+        run: >
+          echo "${{ secrets.NPMRC }}" | base64 -d > ./.npmrc
+          && npm install @xtrf/tms-messages
+          && cp ./.npmrc ./node_modules/@xtrf/tms-messages
+          && cp ./.npmrc ~/.npmrc 
+      - name: Generate and publish new version of @xtrf/tms-messages package
+        run: > 
+          cd ./node_modules/@xtrf/tms-messages 
+          && npm i -g --legacy-bundling @tsh/ecstasy
+          && version=${{ github.sha }} ecstasy
+          && npm version patch
+          && npm i -g dot-json
+          && cat package.json
+          && dot-json package.json deprecated --delete
+          && npm publish
