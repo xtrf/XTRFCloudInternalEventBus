@@ -237,7 +237,7 @@ components:
         number:
           type: string
         urls:
-          $id: JobProperties
+          $id: JobUrls
           type: object
           properties:
             clientView:
