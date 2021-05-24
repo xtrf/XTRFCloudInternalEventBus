@@ -37,15 +37,11 @@ channels:
 
 components:
   schemas:
-    EventEnvelope:
+    EventEnvelope:      
+      $id: EventEnvelope
       description: "Envelope shared between messages"
       type: object
-      required:
-        - eventName
-        - eventId
-        - timestamp
-        - workspaceId
-        - event
+      required: [eventName, eventId, timestamp, workspaceId, event]
       properties:
         eventName:
           type: string
@@ -64,24 +60,131 @@ components:
           type: number
           description: "Event revision used for Event schema versioning and upcasting. Null means this is the first revision of the event"
         metadata:
-          type: object
+          #type: any - if there is no type its interpreted by libraries as any
+          $id: EventEnvelopeMetadata
           description: "Other, client defined data"
         causedBy:
           type: string
           format: UUID
         event:
+          $id: Event
           type: object
-
+          
     NameWithDictionaryId:
+      $id: NameWithDictionaryId
       description: "Object that stores not localized name and id for localizations"
       type: object
       required: [notLocalized]
       properties:
         notLocalized:
+          minLength: 0
           type: string
         dictionaryId:
           description: "Id for localized name"
           type: string
+
+    ProjectUrls:
+      type: object
+      $id: ProjectUrls
+      properties:
+        clientView:
+          type: string
+        managerView:
+          type: string
+
+    ProjectFinance:
+      type: object
+      $id: ProjectFinance
+      properties:
+        currency:
+          type: string
+          format: currency-ISO-code
+        summary:
+          $id: ProjectFinanceSummary
+          type: object
+          required: [totalValue]
+          properties:
+            totalValue:
+              type: number
+            totalCost:
+              type: number
+    
+    ProjectService:
+      $id: ProjectService
+      type: object
+      required: [serviceName, serviceSpecification]
+      properties:
+        finance:
+          $id: ProjectFinance
+          type: object
+          properties:
+            totalValue:
+              type: number
+            calculationUnit:
+              type: string
+            quantity:
+              $id: ProjectFinanceQuantity
+              type: object
+              properties:
+                totalQuantity:
+                  type: number
+                weightedQuantity:
+                  type: number
+        serviceName:
+          $ref: "#/components/schemas/NameWithDictionaryId"
+        serviceSpecification:
+          $id: ProjectServiceSpecification
+          type: object
+          properties:
+            sourceLanguage:
+              type: string
+              format: lang-ISO-code
+            targetLanguage:
+              type: string
+              format: lang-ISO-code
+            specialization:
+              $ref: "#/components/schemas/NameWithDictionaryId"
+            catToolName:
+              type: string
+            mtEngineName:
+              type: string
+
+    ProjectDates:
+      $id: ProjectDates
+      type: object
+      properties:
+        plannedStartDate:
+          type: string
+          format: date-time
+        plannedEndDate:
+          type: string
+          format: date-time
+
+    ProjectClient: 
+      $id: ProjectClient
+      type: object
+      required: [id, name, number, location]
+      properties:
+        id:
+          type: string
+          format: UUID
+          minLength: 0
+        name:
+          type: string
+          minLength: 0
+        number:
+          type: string
+          minLength: 0
+        location:
+          $id: ProjectClientLocation
+          type: object
+          properties:
+            country:
+              type: string
+            city:
+              type: string
+    
+
 
     Project:
       type: object
@@ -94,104 +197,31 @@ components:
         number:
           type: string
         urls:
-          type: object
-          properties:
-            clientView:
-              type: string
-            managerView:
-              type: string
+          $ref: "#/components/schemas/ProjectUrls"
         sourceLanguages:
             type: array
             items:
-                type: string
-                format: lang-ISO-code
+              type: string
+              format: lang-ISO-code
         targetLanguages:
             type: array
             items:
-                type: string
-                format: lang-ISO-code
+              type: string
+              format: lang-ISO-code
         specializations:
             type: array
             items:
-                $ref: "#/components/schemas/NameWithDictionaryId"
+              $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
-          type: object
-          properties:
-            currency:
-              type: string
-              format: currency-ISO-code
-            summary:
-              type: object
-              required: [totalValue]
-              properties:
-                totalValue:
-                  type: number
-                totalCost:
-                  type: number
+          $ref: "#/components/schemas/ProjectFinance"
         services:
           type: array
           items:
-            type: object
-            required: [serviceName, serviceSpecification]
-            properties:
-              finance:
-                type: object
-                properties:
-                  totalValue:
-                    type: number
-                  calculationUnit:
-                    type: string
-                  quantity:
-                    type: object
-                    properties:
-                      totalQuantity:
-                        type: number
-                      weightedQuantity:
-                        type: number
-              serviceName:
-                $ref: "#/components/schemas/NameWithDictionaryId"
-              serviceSpecification:
-                type: object
-                properties:
-                  sourceLanguage:
-                    type: string
-                    format: lang-ISO-code
-                  targetLanguage:
-                    type: string
-                    format: lang-ISO-code
-                  specialization:
-                    $ref: "#/components/schemas/NameWithDictionaryId"
-                  catToolName:
-                    type: string
-                  mtEngineName:
-                    type: string
+            $ref: "#/components/schemas/ProjectService"
         dates:
-          type: object
-          properties:
-            plannedStartDate:
-              type: string
-              format: date-time
-            plannedEndDate:
-              type: string
-              format: date-time
+          $ref: "#/components/schemas/ProjectDates"
         client:
-          type: object
-          required: [id, name, number, location]
-          properties:
-            id:
-              type: string
-              format: UUID
-            name:
-              type: string
-            number:
-              type: string
-            location:
-              type: object
-              properties:
-                country:
-                  type: string
-                city:
-                  type: string
+          $ref: "#/components/schemas/ProjectClient"
 
     Job:
       type: object
@@ -207,6 +237,7 @@ components:
         number:
           type: string
         urls:
+          $id: JobUrls
           type: object
           properties:
             clientView:
@@ -228,12 +259,14 @@ components:
         specialization:
           $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
+          $id: JobFinance
           type: object
           properties:
             currency:
               type: string
               format: currency-ISO-code
             summary:
+              $id: JobFinanceSummary
               type: object
               required: [totalValue]
               properties:
@@ -242,10 +275,12 @@ components:
         services:
           type: array
           items:
+            $id: JobService
             type: object
             required: [serviceName, serviceSpecification]
             properties:
               finance:
+                $id: JobServiceFinance
                 type: object
                 properties:
                   totalValue:
@@ -253,6 +288,7 @@ components:
                   calculationUnit:
                     type: string
                   quantity:
+                    $id: JobServiceFinanceQuantity
                     type: object
                     properties:
                       totalQuantity:
@@ -262,6 +298,7 @@ components:
               serviceName:
                 $ref: "#/components/schemas/NameWithDictionaryId"
               serviceSpecification:
+                $id: JobServiceSpecification
                 type: object
                 properties:
                   sourceLanguage:
@@ -277,6 +314,7 @@ components:
                   mtEngineName:
                     type: string
         dates:
+          $id: JobDates
           type: object
           properties:
             plannedStartDate:
@@ -286,6 +324,7 @@ components:
               type: string
               format: date-time
         instructions:
+          $id: JobInstructions
           type: object
           properties:
             fromManager:
@@ -300,6 +339,7 @@ components:
         * TMS should send it when: Project was created
         * XTRF sends it when: Project or Quote was created
       payload:
+        $id: MessageProjectCreated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -309,10 +349,12 @@ components:
                 const: tms.event.project.created
               event:
                 type: object
+                $id: EventProjectCreated
                 required: [project]
                 properties:
                   project:
-                    required: [id, name, number, urls, client]
+                    $id: ProjectCreated
+                    required: [id, number, urls, client]
                     $ref: "#/components/schemas/Project"
 
     project.Archived:
@@ -320,6 +362,7 @@ components:
         * TMS should send it when: Project was archived, deactivated, removed or deleted
         * XTRF sends it when: Project was archived or deleted
       payload:
+        $id: MessageProjectArchived
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -328,6 +371,7 @@ components:
               eventName:
                 const: tms.event.project.archived
               event:
+                $id: EventProjectArchived
                 type: object
                 required: [projectId]
                 properties:
@@ -340,6 +384,7 @@ components:
         * TMS should send it when: Project Manager was assigned to a Project
         * XTRF sends it when: Project Manager or Project Coordinator was assigned to a Project/Quote
       payload:
+        $id: MessageProjectManagerAssigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -349,6 +394,7 @@ components:
                 const: tms.event.project.managerAssigned
               event:
                 type: object
+                $id: EventProjectManagerAssigned
                 required: [projectId, manager]
                 properties:
                   projectId:
@@ -356,6 +402,7 @@ components:
                     format: UUID
                   manager:
                     type: object
+                    $id: ProjectManager
                     required: [id, name, email]
                     properties:
                       id:
@@ -372,6 +419,7 @@ components:
         * TMS should send it when: Project Manager was unassigned from a Project
         * XTRF sends it when: Project Manager or Project Coordinator was unassigned from a Project/Quote
       payload:
+        $id: MessageProjectManagerUnassigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -380,6 +428,7 @@ components:
               eventName:
                 const: tms.event.project.managerUnassigned
               event:
+                $id: EventProjectManagerUnassigned
                 type: object
                 required: [projectId, managerId]
                 properties:
@@ -395,6 +444,7 @@ components:
         * TMS should send it when: Project info was updated
         * XTRF sends it when: Project info was updated (excluding information for which there are specific events, for ex. status)
       payload:
+        $id: MessageProjectInfoUpdated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -403,11 +453,13 @@ components:
               eventName:
                 const: tms.event.project.info.updated
               event:
+                $id: EventProjectInfoUpdated
                 type: object
                 required: [project]
                 properties:
                   project:
                     description: "Only fields that have changed"
+                    $id: ProjectInfoUpdated
                     required: [id]
                     $ref: "#/components/schemas/Project"
 
@@ -416,6 +468,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was opened
         * XTRF sends it when: After Project or Quote was Created
       payload:
+        $id: MessageProjectStatusOpened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -424,6 +477,7 @@ components:
               eventName:
                 const: tms.event.project.status.opened
               event:
+                $id: EventProjectStatusOpened
                 type: object
                 required: [projectId, newStatus]
                 properties:
@@ -443,6 +497,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was started
         * XTRF sends it when: in Project job will be started for the first time or when converting quote to project there will be any started job
       payload:
+        $id: MessageProjectStatusStarted
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -451,6 +506,7 @@ components:
               eventName:
                 const: tms.event.project.status.started
               event:
+                $id: EventProjectStatusStarted
                 type: object
                 required: [projectId, newStatus]
                 properties:
@@ -470,6 +526,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was closed
         * XTRF sends it when: Project status was changed to Closed
       payload:
+        $id: MessageProjectStatusClosed
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -478,6 +535,7 @@ components:
               eventName:
                 const: tms.event.project.status.closed
               event:
+                $id: EventProjectStatusClosed
                 type: object
                 required: [projectId, newStatus]
                 properties:
@@ -497,6 +555,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was reopened
         * XTRF sends it when: Project status was changed to Open or Quote status was changed to Pending
       payload:
+        $id: MessageProjectStatusReopened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -505,6 +564,7 @@ components:
               eventName:
                 const: tms.event.project.status.reopened
               event:
+                $id: EventProjectStatusReopened
                 type: object
                 required: [projectId, newStatus]
                 properties:
@@ -524,6 +584,7 @@ components:
         * TMS should send it when: Project status was changed to a status that means the project was calceled
         * XTRF sends it when: Project status was changed to Cancelled or Quote status was changed to Rejected
       payload:
+        $id: MessageProjectStatusCancelled
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -532,6 +593,7 @@ components:
               eventName:
                 const: tms.event.project.status.cancelled
               event:
+                $id: EventProjectStatusCancelled
                 type: object
                 required: [projectId, newStatus]
                 properties:
@@ -551,6 +613,7 @@ components:
         * TMS should send it when: Job was created
         * XTRF sends it when: Job was created (in Project or Quote)
       payload:
+        $id: MessageJobCreated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -559,10 +622,12 @@ components:
               eventName:
                 const: tms.event.job.created
               event:
+                $id: EventJobCreated
                 type: object
                 required: [job]
                 properties:
                   job:
+                    $id: JobCreated
                     required: [id, projectId, name, number, urls]
                     $ref: "#/components/schemas/Job"
 
@@ -571,6 +636,7 @@ components:
         * TMS should send it when: Job was archived, deactivated, removed or deleted. Should be sent if the job was archived as a consequence of archiving a project.
         * XTRF sends it when: Job was archived or deleted
       payload:
+        $id: MessageJobArchived
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -579,6 +645,7 @@ components:
               eventName:
                 const: tms.event.job.archived
               event:
+                $id: EventJobArchived
                 type: object
                 required: [jobId, projectId]
                 properties:
@@ -594,6 +661,7 @@ components:
         * TMS should send it when: Vendor was assigned to a Job in a Project
         * XTRF sends it when: Vendor Contact Person was assigned to a Job in a Project/Quote
       payload:
+        $id: MessageJobVendorAssigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -602,6 +670,7 @@ components:
               eventName:
                 const: tms.event.job.vendorAssigned
               event:
+                $id: EventJobVendorAssigned
                 type: object
                 required: [jobId, projectId, vendor]
                 properties:
@@ -613,6 +682,7 @@ components:
                     format: UUID
                   vendor:
                     type: object
+                    $id: Vendor
                     required: [id, name, email, location]
                     properties:
                       id:
@@ -626,6 +696,7 @@ components:
                       companyName:
                         type: string
                       location:
+                        $id: JobClientLocation
                         type: object
                         properties:
                           country:
@@ -638,6 +709,7 @@ components:
         * TMS should send it when: Vendor was unassigned from a Job in a Project
         * XTRF sends it when: Vendor Contact Person was unassigned from a Job in a Project/Quote
       payload:
+        $id: MessageJobVendorUnassigned
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -647,6 +719,7 @@ components:
                 const: tms.event.job.vendorUnassigned
               event:
                 type: object
+                $id: EventJobVendorUnassigned
                 required: [jobId, projectId, vendorId]
                 properties:
                   jobId:
@@ -664,6 +737,7 @@ components:
         * TMS should send it when: Job info was updated
         * XTRF sends it when: Job type, number, languages or specializations were updated
       payload:
+        $id: MessageJobInfoUpdated
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -672,10 +746,12 @@ components:
               eventName:
                 const: tms.event.job.info.updated
               event:
+                $id: EventJobInfoUpdated
                 type: object
                 required: [job]
                 properties:
                   job:
+                    $id: JobInfoUpdated
                     description: "Only fields that have changed"
                     required: [id, projectId]
                     $ref: "#/components/schemas/Job"
@@ -685,6 +761,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was opened
         * XTRF sends it when: Job status was changed to Opened, Requested or Assigned
       payload:
+        $id: MessageJobStatusOpened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -694,6 +771,7 @@ components:
                 const: tms.event.job.status.opened
               event:
                 type: object
+                $id: EventJobStatusOpened
                 required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
@@ -715,6 +793,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was started
         * XTRF sends it when: Job status was changed to Started
       payload:
+        $id: MessageJobStatusStarted
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -723,6 +802,7 @@ components:
               eventName:
                 const: tms.event.job.status.started
               event:
+                $id: EventJobStatusStarted
                 type: object
                 required: [jobId, projectId, newStatus]
                 properties:
@@ -745,6 +825,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was closed
         * XTRF sends it when: Job status was changed to Ready
       payload:
+        $id: MessageJobStatusClosed
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -754,6 +835,7 @@ components:
                 const: tms.event.job.status.closed
               event:
                 type: object
+                $id: EventJobStatusClosed
                 required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
@@ -775,6 +857,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was reopened
         * XTRF sends it when: Job was reopened
       payload:
+        $id: MessageJobStatusReopened
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -784,6 +867,7 @@ components:
                 const: tms.event.job.status.reopened
               event:
                 type: object
+                $id: EventJobStatusReopened
                 required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
@@ -805,6 +889,7 @@ components:
         * TMS should send it when: Job status was changed to a status that means the job was cancelled
         * XTRF sends it when: Job status was changed to Cancelled
       payload:
+        $id: MessageJobStatusCancelled
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -814,6 +899,7 @@ components:
                 const: tms.event.job.status.cancelled
               event:
                 type: object
+                $id: EventJobStatusCancelled
                 required: [jobId, projectId, newStatus]
                 properties:
                   jobId:
@@ -835,6 +921,7 @@ components:
         * TMS should send it when: A file was added to a Job
         * XTRF sends it when: A file was added to a Job
       payload:
+        $id: MessageJobFilesAdded
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -844,6 +931,7 @@ components:
                 const: tms.event.job.files.added
               event:
                 type: object
+                $id: EventJobFilesAdded
                 required: [jobId, projectId, files]
                 properties:
                   jobId:
@@ -856,6 +944,7 @@ components:
                     type: array
                     items:
                       type: object
+                      $id: File
                       required: [id, name, properties]
                       properties:
                         id:
@@ -864,6 +953,7 @@ components:
                         name:
                           type: string
                         urls:
+                          $id: FileUrl
                           type: object
                           properties:
                             forVendor:
@@ -871,6 +961,7 @@ components:
                             forManager:
                               type: string
                         properties:
+                          $id: FileProperties
                           type: object
                           properties:
                             category:
@@ -887,6 +978,7 @@ components:
         * TMS should send it when: A file was removed from a Job
         * XTRF sends it when: A file was removed from a Job
       payload:
+        $id: MessageJobFilesRemoved
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -896,6 +988,7 @@ components:
                 const: tms.event.job.files.removed
               event:
                 type: object
+                $id: EventJobFilesRemoved
                 required: [jobId, projectId, fileIds]
                 properties:
                   jobId:
@@ -915,6 +1008,7 @@ components:
         * TMS should send it when: User was deleted, erased or deactivated in the TMS and has to be removed from the Workspace.
         * XTRF sends it when: HP User or Vendor Contact Person was deleted or erased
       payload:
+        $id: MessageUserDeletedOrErased
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -923,13 +1017,17 @@ components:
               eventName:
                 const: tms.event.user.deletedOrErased
               event:
+                $id: EventUserDeletedOrErased
                 type: object
                 required: [user]
                 properties:
                   user:
+                    $id: User
                     type: object
                     required: [id]
                     properties:
                       id:
                         type: string
                         format: UUID
+
+
