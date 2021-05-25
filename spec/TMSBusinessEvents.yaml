@@ -57,7 +57,7 @@ components:
           type: string
           description: "Name of the workspace"
         revision:
-          type: number
+          type: [number, "null"]
           description: "Event revision used for Event schema versioning and upcasting. Null means this is the first revision of the event"
         metadata:
           #type: any - if there is no type its interpreted by libraries as any
@@ -77,7 +77,6 @@ components:
       required: [notLocalized]
       properties:
         notLocalized:
-          minLength: 0
           type: string
         dictionaryId:
           description: "Id for localized name"
@@ -171,10 +170,8 @@ components:
           minLength: 0
         name:
           type: string
-          minLength: 0
         number:
           type: string
-          minLength: 0
         location:
           $id: ProjectClientLocation
           type: object
