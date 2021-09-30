@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.1.6
+  version: docs version 1.1.7
 defaultContentType: "application/json"
 channels:
   tms-events:
@@ -32,6 +32,9 @@ channels:
           - $ref: "#/components/messages/job.StatusCancelled"
           - $ref: "#/components/messages/job.FilesAdded"
           - $ref: "#/components/messages/job.FilesRemoved"
+
+          - $ref: "#/components/messages/job.offer.AcceptedEvent"
+          - $ref: "#/components/messages/job.offer.RejectedEvent"
 
           - $ref: "#/components/messages/user.DeletedOrErased"
 
@@ -999,6 +1002,64 @@ components:
                     items:
                       type: string
                       format: UUID
+
+    job.offer.AcceptedEvent:
+      description: |
+        * TMS should send it when: Vendor accepted a Job Offer in TMS
+        * XTRF sends it when: Vendor accepted a Job Offer in Vendor Portal
+      payload:
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: tms.event.job.offer.status.accepted
+              event:
+                type: object
+                required: [jobId, vendorProfileId, contactProposal]
+                properties:
+                  jobId:
+                    type: string
+                    format: UUID
+                  vendorProfileId:
+                    type: string
+                    format: UUID
+                  contactProposal:
+                    type: object
+                    required: [fee, currency, deadline]
+                    properties:
+                      fee:
+                        type: number
+                      currency:
+                        type: string
+                        format: currency-ISO-code
+                      deadline:
+                        type: string
+                        format: date-time
+
+    job.offer.RejectedEvent:
+      description: |
+        * TMS should send it when: Vendor rejected a Job Offer in TMS
+        * XTRF sends it when: Vendor rejected a Job Offer in Vendor Portal
+      payload:
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: tms.event.job.offer.status.rejected
+              event:
+                type: object
+                required: [jobId, vendorProfileId]
+                properties:
+                  jobId:
+                    type: string
+                    format: UUID
+                  vendorProfileId:
+                    type: string
+                    format: UUID
 
     user.DeletedOrErased:
       description: |
