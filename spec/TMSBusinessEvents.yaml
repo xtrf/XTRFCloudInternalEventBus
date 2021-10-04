@@ -332,6 +332,18 @@ components:
             fromPreviousVendors:
               type: string
 
+    JobOfferAdditionalData:
+      type: object
+      $id: JobOfferAdditionalData
+      description: "TMS specific data. Below are fields sent by XTRF."
+      properties:
+        vendorId:
+          type: number
+        vendorPriceProfileId:
+          type: number
+        vendorContactPersonId:
+          type: number
+
   messages:
 
     project.Created:
@@ -1017,12 +1029,9 @@ components:
                 const: tms.event.job.offer.status.accepted
               event:
                 type: object
-                required: [jobId, vendorProfileId, contactProposal]
+                required: [jobId, contactProposal]
                 properties:
                   jobId:
-                    type: string
-                    format: UUID
-                  vendorProfileId:
                     type: string
                     format: UUID
                   contactProposal:
@@ -1037,6 +1046,8 @@ components:
                       deadline:
                         type: string
                         format: date-time
+                  additionalData:
+                    $ref: "#/components/schemas/JobOfferAdditionalData"
 
     job.offer.RejectedEvent:
       description: |
@@ -1052,14 +1063,13 @@ components:
                 const: tms.event.job.offer.status.rejected
               event:
                 type: object
-                required: [jobId, vendorProfileId]
+                required: [jobId]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  vendorProfileId:
-                    type: string
-                    format: UUID
+                  additionalData:
+                    $ref: "#/components/schemas/JobOfferAdditionalData"
 
     user.DeletedOrErased:
       description: |
