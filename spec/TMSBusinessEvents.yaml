@@ -332,17 +332,25 @@ components:
             fromPreviousVendors:
               type: string
 
-    JobOfferAdditionalData:
+  
+    JobOfferVendorDetails:
       type: object
-      $id: JobOfferAdditionalData
-      description: "TMS specific data. Below are fields sent by XTRF."
+      $id: JobOfferVendorDetails
+      required: [id]
       properties:
-        vendorId:
-          type: number
-        vendorPriceProfileId:
-          type: number
-        vendorContactPersonId:
-          type: number
+        id:
+          type: string
+          format: UUID
+        additionalData:
+          type: object
+          description: "TMS specific data. Below are fields sent by XTRF."
+          properties:
+            vendorId:
+              type: number
+            vendorPriceProfileId:
+              type: number
+            vendorContactPersonId:
+              type: number
 
   messages:
 
@@ -1029,7 +1037,7 @@ components:
                 const: tms.event.job.offer.status.accepted
               event:
                 type: object
-                required: [jobId, contactProposal]
+                required: [jobId, contactProposal, vendor]
                 properties:
                   jobId:
                     type: string
@@ -1046,8 +1054,8 @@ components:
                       deadline:
                         type: string
                         format: date-time
-                  additionalData:
-                    $ref: "#/components/schemas/JobOfferAdditionalData"
+                  vendor:
+                    $ref: "#/components/schemas/JobOfferVendorDetails"
 
     job.offer.RejectedEvent:
       description: |
@@ -1063,13 +1071,13 @@ components:
                 const: tms.event.job.offer.status.rejected
               event:
                 type: object
-                required: [jobId]
+                required: [jobId, vendor]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  additionalData:
-                    $ref: "#/components/schemas/JobOfferAdditionalData"
+                  vendor:
+                    $ref: "#/components/schemas/JobOfferVendorDetails"
 
     user.DeletedOrErased:
       description: |
