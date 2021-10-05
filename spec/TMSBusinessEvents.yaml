@@ -345,11 +345,11 @@ components:
           type: object
           description: "TMS specific data. Below are fields sent by XTRF."
           properties:
-            vendorId:
+            xtrfVendorId:
               type: number
-            vendorPriceProfileId:
+            xtrfVendorPriceProfileId:
               type: number
-            vendorContactPersonId:
+            xtrfVendorContactPersonId:
               type: number
 
   messages:
