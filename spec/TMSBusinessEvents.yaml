@@ -332,6 +332,26 @@ components:
             fromPreviousVendors:
               type: string
 
+  
+    JobOfferVendorDetails:
+      type: object
+      $id: JobOfferVendorDetails
+      required: [id]
+      properties:
+        id:
+          type: string
+          format: UUID
+        additionalData:
+          type: object
+          description: "TMS specific data. Below are fields sent by XTRF."
+          properties:
+            xtrfVendorId:
+              type: number
+            xtrfVendorPriceProfileId:
+              type: number
+            xtrfVendorContactPersonId:
+              type: number
+
   messages:
 
     project.Created:
@@ -1017,12 +1037,9 @@ components:
                 const: tms.event.job.offer.status.accepted
               event:
                 type: object
-                required: [jobId, vendorProfileId, contactProposal]
+                required: [jobId, contactProposal, vendor]
                 properties:
                   jobId:
-                    type: string
-                    format: UUID
-                  vendorProfileId:
                     type: string
                     format: UUID
                   contactProposal:
@@ -1037,6 +1054,8 @@ components:
                       deadline:
                         type: string
                         format: date-time
+                  vendor:
+                    $ref: "#/components/schemas/JobOfferVendorDetails"
 
     job.offer.RejectedEvent:
       description: |
@@ -1052,14 +1071,13 @@ components:
                 const: tms.event.job.offer.status.rejected
               event:
                 type: object
-                required: [jobId, vendorProfileId]
+                required: [jobId, vendor]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  vendorProfileId:
-                    type: string
-                    format: UUID
+                  vendor:
+                    $ref: "#/components/schemas/JobOfferVendorDetails"
 
     user.DeletedOrErased:
       description: |
