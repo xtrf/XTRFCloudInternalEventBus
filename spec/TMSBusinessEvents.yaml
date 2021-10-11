@@ -1107,3 +1107,191 @@ components:
                       id:
                         type: string
                         format: UUID
+    prospecting.started:
+      description: |
+        * Job offer should send it when: prospecting started.
+      payload:
+        $id: MessageProspectingStarted
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.prospecting.started
+              event:
+                $id: EventProspectingStarted
+                type: object
+                required: [prospectingId, prospectingDashboardUrl]
+                properties:
+                  prospectingId:
+                    type: string
+                  prospectingDashboardUrl:
+                    type: string
+    prospecting.finished:
+      description: |
+        * Job offer should send it when: prospecting finished.
+      payload:
+        $id: MessageProspectingFinished
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.prospecting.finished
+              event:
+                $id: EventProspectingFinished
+                type: object
+                required: [prospectingId, finisher]
+                properties:
+                  prospectingId:
+                    type: string
+                  vendorId:
+                    type: string
+                  finisher:
+                    type: string
+    prospecting.cancelled:
+      description: |
+        * Job offer should send it when: prospecting cancelled.
+      payload:
+        $id: MessageProspectingCancelled
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.prospecting.cancelled
+              event:
+                $id: EventProspectingCancelled
+                type: object
+                required: [prospectingId]
+                properties:
+                  prospectingId:
+                    type: string
+    job.offer.vendorSelectionRequested:
+      description: |
+        * Job offer should send it when: prospecting wants to assign vendor.
+      payload:
+        $id: MessageJobOfferVendorSelectionRequested
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.vendorSelectionRequested
+              event:
+                $id: EventJobOfferVendorSelectionRequested
+                type: object
+                required: [prospectingId, selectionTrigger, jobId, vendorOffer]
+                properties:
+                  prospectingId:
+                    type: string
+                  selectionTrigger:
+                    type: string
+                    oneOf:
+                      - manual:
+                          type: string
+                      - automatic:
+                          type: string
+                  jobId:
+                    type: string
+                  vendorOffer:
+                    type: object
+                    required: [vendorId, vendorOfferId, fee, currency, deadline]
+                    properties:
+                      vendorId:
+                        type: string
+                      vendorOfferId:
+                        type: string
+                      fee:
+                        type: number
+                      currency:
+                        type: string
+                      deadline:
+                        type: string
+    job.offer.sentToVendor:
+      description: |
+        * Job offer should send it when: cascade offers are sent.
+      payload:
+        $id: MessageJobOfferSentToVendor
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.sentToVendor
+              event:
+                $id: EventJobOfferSentToVendor
+                type: object
+                required: [prospectingId, jobId, vendorOffer]
+                properties:
+                  prospectingId:
+                    type: string
+                  jobId:
+                    type: string
+                  vendorOffer:
+                    type: object
+                    required: [vendorId, vendorOfferId, fee, currency, deadline]
+                    properties:
+                      vendorId:
+                        type: string
+                      vendorOfferId:
+                        type: string
+                      fee:
+                        description: It will always be integer, never float. For example 1.99$ will be represented by 199.
+                        type: number
+                      currency:
+                        type: string
+                      deadline:
+                        type: string
+    job.offer.vendorResponded:
+      description: |
+        * Job offer should send it when: vendor responded to active offer.
+      payload:
+        $id: MessageJobOfferVendorResponded
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.vendorResponded
+              event:
+                $id: EventJobOfferVendorResponded
+                type: object
+                required: [prospectingId, jobId, vendorOffer]
+                properties:
+                  prospectingId:
+                    type: string
+                  jobId:
+                    type: string
+                  vendorOffer:
+                    type: object
+                    required:
+                      [vendorId, vendorOfferId, fee, currency, deadline, status]
+                    properties:
+                      vendorId:
+                        type: string
+                      vendorOfferId:
+                        type: string
+                      fee:
+                        type: number
+                      currency:
+                        type: string
+                      deadline:
+                        type: string
+                      status:
+                        type: string
+                        oneOf:
+                          - accepted:
+                              type: string
+                          - rejected:
+                              type: string
+                          - negotiatedLowerOrEqual:
+                              type: string
+                          - negotiatedHigher:
+                              type: string
