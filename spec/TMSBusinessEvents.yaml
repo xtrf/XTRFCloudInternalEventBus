@@ -341,6 +341,7 @@ components:
         additionalData:
           $id: AdditionalData
           type: object
+          $id: AdditionalData
           description: "TMS specific data. Below are fields sent by XTRF."
           properties:
             xtrfVendorId:
@@ -1044,14 +1045,14 @@ components:
                   contactProposal:
                     $id: ContactProposal
                     type: object
-                    required: [fee, currency, deadline]
+                    required: [fee, currency, plannedEndDate]
                     properties:
                       fee:
                         type: number
                       currency:
                         type: string
                         format: currency-ISO-code
-                      deadline:
+                      plannedEndDate:
                         type: string
                         format: date-time
                   vendor:
@@ -1122,11 +1123,11 @@ components:
               event:
                 $id: EventProspectingStarted
                 type: object
-                required: [prospectingId, prospectingDashboardUrl]
+                required: [prospectingId, prospectingUrl]
                 properties:
                   prospectingId:
                     type: string
-                  prospectingDashboardUrl:
+                  prospectingUrl:
                     type: string
     prospecting.finished:
       description: |
@@ -1199,18 +1200,19 @@ components:
                   jobId:
                     type: string
                   vendorOffer:
+                    $id: VendorOfferSelectionRequested
                     type: object
-                    required: [vendorId, vendorOfferId, fee, currency, deadline]
+                    required: [vendorId, id, fee, currency, plannedEndDate]
                     properties:
                       vendorId:
                         type: string
-                      vendorOfferId:
+                      id:
                         type: string
                       fee:
                         type: number
                       currency:
                         type: string
-                      deadline:
+                      plannedEndDate: 
                         type: string
     job.offer.sentToVendor:
       description: |
@@ -1234,19 +1236,20 @@ components:
                   jobId:
                     type: string
                   vendorOffer:
+                    $id: VendorOfferSentToVendor
                     type: object
-                    required: [vendorId, vendorOfferId, fee, currency, deadline]
+                    required: [vendorId, id, fee, currency, plannedEndDate]
                     properties:
                       vendorId:
                         type: string
-                      vendorOfferId:
+                      id:
                         type: string
                       fee:
                         description: It will always be integer, never float. For example 1.99$ will be represented by 199.
                         type: number
                       currency:
                         type: string
-                      deadline:
+                      plannedEndDate: 
                         type: string
     job.offer.vendorResponded:
       description: |
@@ -1270,28 +1273,28 @@ components:
                   jobId:
                     type: string
                   vendorOffer:
+                    $id: VendorOfferVendorResponded
                     type: object
-                    required:
-                      [vendorId, vendorOfferId, fee, currency, deadline, status]
+                    required: [vendorId, id, fee, currency, plannedEndDate, response]
                     properties:
                       vendorId:
                         type: string
-                      vendorOfferId:
+                      id:
                         type: string
                       fee:
                         type: number
                       currency:
                         type: string
-                      deadline:
+                      plannedEndDate: 
                         type: string
-                      status:
+                      response:
                         type: string
                         oneOf:
-                          - accepted:
-                              type: string
                           - rejected:
-                              type: string
+                            type: string
+                          - accepted:
+                            type: string
                           - negotiatedLowerOrEqual:
-                              type: string
+                            type: string 
                           - negotiatedHigher:
-                              type: string
+                            type: string
