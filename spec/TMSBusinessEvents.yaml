@@ -40,7 +40,7 @@ channels:
 
 components:
   schemas:
-    EventEnvelope:      
+    EventEnvelope:
       $id: EventEnvelope
       description: "Envelope shared between messages"
       type: object
@@ -72,7 +72,7 @@ components:
         event:
           $id: Event
           type: object
-          
+
     NameWithDictionaryId:
       $id: NameWithDictionaryId
       description: "Object that stores not localized name and id for localizations"
@@ -110,7 +110,7 @@ components:
               type: number
             totalCost:
               type: number
-    
+
     ProjectService:
       $id: ProjectService
       type: object
@@ -162,7 +162,7 @@ components:
           type: string
           format: date-time
 
-    ProjectClient: 
+    ProjectClient:
       $id: ProjectClient
       type: object
       required: [id, name, number, location]
@@ -183,8 +183,6 @@ components:
               type: string
             city:
               type: string
-    
-
 
     Project:
       type: object
@@ -199,19 +197,19 @@ components:
         urls:
           $ref: "#/components/schemas/ProjectUrls"
         sourceLanguages:
-            type: array
-            items:
-              type: string
-              format: lang-ISO-code
+          type: array
+          items:
+            type: string
+            format: lang-ISO-code
         targetLanguages:
-            type: array
-            items:
-              type: string
-              format: lang-ISO-code
+          type: array
+          items:
+            type: string
+            format: lang-ISO-code
         specializations:
-            type: array
-            items:
-              $ref: "#/components/schemas/NameWithDictionaryId"
+          type: array
+          items:
+            $ref: "#/components/schemas/NameWithDictionaryId"
         finance:
           $ref: "#/components/schemas/ProjectFinance"
         services:
@@ -332,7 +330,6 @@ components:
             fromPreviousVendors:
               type: string
 
-  
     JobOfferVendorDetails:
       type: object
       $id: JobOfferVendorDetails
@@ -342,6 +339,7 @@ components:
           type: string
           format: UUID
         additionalData:
+          $id: AdditionalData
           type: object
           description: "TMS specific data. Below are fields sent by XTRF."
           properties:
@@ -353,7 +351,6 @@ components:
               type: number
 
   messages:
-
     project.Created:
       description: |
         * TMS should send it when: Project was created
@@ -991,7 +988,7 @@ components:
                               format: lang-ISO-code
                             targetLanguage:
                               type: string
-                              format: lang-ISO-code                                  
+                              format: lang-ISO-code
 
     job.FilesRemoved:
       description: |
@@ -1028,6 +1025,7 @@ components:
         * TMS should send it when: Vendor accepted a Job Offer in TMS
         * XTRF sends it when: Vendor accepted a Job Offer in Vendor Portal
       payload:
+        $id: MessageAcceptedEvent
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -1036,6 +1034,7 @@ components:
               eventName:
                 const: tms.event.job.offer.status.accepted
               event:
+                $id: EventJobOfferAccepted
                 type: object
                 required: [jobId, contactProposal, vendor]
                 properties:
@@ -1043,6 +1042,7 @@ components:
                     type: string
                     format: UUID
                   contactProposal:
+                    $id: ContactProposal
                     type: object
                     required: [fee, currency, deadline]
                     properties:
@@ -1062,6 +1062,7 @@ components:
         * TMS should send it when: Vendor rejected a Job Offer in TMS
         * XTRF sends it when: Vendor rejected a Job Offer in Vendor Portal
       payload:
+        $id: MessageRejectedEvent
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
@@ -1070,6 +1071,7 @@ components:
               eventName:
                 const: tms.event.job.offer.status.rejected
               event:
+                $id: EventJobOfferRejected
                 type: object
                 required: [jobId, vendor]
                 properties:
@@ -1105,5 +1107,3 @@ components:
                       id:
                         type: string
                         format: UUID
-
-
