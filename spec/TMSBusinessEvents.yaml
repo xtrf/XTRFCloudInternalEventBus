@@ -341,7 +341,6 @@ components:
         additionalData:
           $id: AdditionalData
           type: object
-          $id: AdditionalData
           description: "TMS specific data. Below are fields sent by XTRF."
           properties:
             xtrfVendorId:
@@ -1108,6 +1107,7 @@ components:
                       id:
                         type: string
                         format: UUID
+
     prospecting.started:
       description: |
         * Job offer should send it when: prospecting started.
@@ -1129,6 +1129,7 @@ components:
                     type: string
                   prospectingUrl:
                     type: string
+
     prospecting.finished:
       description: |
         * Job offer should send it when: prospecting finished.
@@ -1144,14 +1145,22 @@ components:
               event:
                 $id: EventProspectingFinished
                 type: object
-                required: [prospectingId, finisher]
+                required: [prospectingId, resolution]
                 properties:
                   prospectingId:
                     type: string
                   vendorId:
                     type: string
-                  finisher:
+                  resolution:
                     type: string
+                    oneOf:
+                      - automatic:
+                        type: string
+                      - manual:
+                        type: string
+                      - tms:
+                        type: string
+
     prospecting.cancelled:
       description: |
         * Job offer should send it when: prospecting cancelled.
@@ -1171,6 +1180,7 @@ components:
                 properties:
                   prospectingId:
                     type: string
+
     job.offer.vendorSelectionRequested:
       description: |
         * Job offer should send it when: prospecting wants to assign vendor.
@@ -1202,18 +1212,19 @@ components:
                   vendorOffer:
                     $id: VendorOfferSelectionRequested
                     type: object
-                    required: [vendorId, id, fee, currency, plannedEndDate]
+                    required: [vendor, id, fee, currency, plannedEndDate]
                     properties:
-                      vendorId:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
                       fee:
                         type: number
                       currency:
                         type: string
-                      plannedEndDate: 
+                      plannedEndDate:
                         type: string
+
     job.offer.sentToVendor:
       description: |
         * Job offer should send it when: cascade offers are sent.
@@ -1238,10 +1249,10 @@ components:
                   vendorOffer:
                     $id: VendorOfferSentToVendor
                     type: object
-                    required: [vendorId, id, fee, currency, plannedEndDate]
+                    required: [vendor, id, fee, currency, plannedEndDate]
                     properties:
-                      vendorId:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
                       fee:
@@ -1249,8 +1260,11 @@ components:
                         type: number
                       currency:
                         type: string
-                      plannedEndDate: 
+                      plannedEndDate:
                         type: string
+                      chatUrl:
+                        type: string
+
     job.offer.vendorResponded:
       description: |
         * Job offer should send it when: vendor responded to active offer.
@@ -1275,17 +1289,18 @@ components:
                   vendorOffer:
                     $id: VendorOfferVendorResponded
                     type: object
-                    required: [vendorId, id, fee, currency, plannedEndDate, response]
+                    required:
+                      [vendor, id, fee, currency, plannedEndDate, response]
                     properties:
-                      vendorId:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
                       fee:
                         type: number
                       currency:
                         type: string
-                      plannedEndDate: 
+                      plannedEndDate:
                         type: string
                       response:
                         type: string
@@ -1294,7 +1309,5 @@ components:
                             type: string
                           - accepted:
                             type: string
-                          - negotiatedLowerOrEqual:
-                            type: string 
-                          - negotiatedHigher:
+                          - negotiated:
                             type: string
