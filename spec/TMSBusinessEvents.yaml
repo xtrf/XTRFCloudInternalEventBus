@@ -685,7 +685,7 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.vendorAssigned
+                const: tms.event.job.updated.vendorAssigned
               event:
                 $id: EventJobVendorAssigned
                 type: object
@@ -913,7 +913,7 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.status.cancelled
+                const: tms.event.job.updated.status.canceled
               event:
                 type: object
                 $id: EventJobStatusCancelled
@@ -1032,7 +1032,7 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.offer.status.accepted
+                const: tms.event.job.offer.updated.status.accepted
               event:
                 $id: EventJobOfferAccepted
                 type: object
@@ -1069,7 +1069,7 @@ components:
             required: [eventName, event]
             properties:
               eventName:
-                const: tms.event.job.offer.status.rejected
+                const: tms.event.job.offer.updated.status.rejected
               event:
                 $id: EventJobOfferRejected
                 type: object
