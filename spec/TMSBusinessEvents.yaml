@@ -38,6 +38,19 @@ channels:
 
           - $ref: "#/components/messages/user.DeletedOrErased"
 
+  job_offers-events:
+      subscribe:
+        summary: Job Offers app Events
+        message:
+          oneOf:
+            - $ref: "#/components/messages/job.offer.vendorSelectionRequested"
+            - $ref: "#/components/messages/job.offer.sentToVendor"
+            - $ref: "#/components/messages/job.offer.vendorResponded"
+
+            - $ref: "#/components/messages/prospecting.started"
+            - $ref: "#/components/messages/prospecting.finished"
+            - $ref: "#/components/messages/prospecting.cancelled"
+
 components:
   schemas:
     EventEnvelope:
@@ -1145,13 +1158,13 @@ components:
               event:
                 $id: EventProspectingFinished
                 type: object
-                required: [prospectingId, resolution]
+                required: [prospectingId, trigger, resolution]
                 properties:
                   prospectingId:
                     type: string
                   vendorId:
                     type: string
-                  resolution:
+                  trigger:
                     type: string
                     oneOf:
                       - automatic:
@@ -1159,6 +1172,19 @@ components:
                       - manual:
                         type: string
                       - tms:
+                        type: string
+                  resolution:
+                    type: string
+                    oneOf:
+                      - vendorRecommended:
+                        type: string
+                      - noRecommendation:
+                        type: string
+                      - noProposalsReceived:
+                        type: string
+                      - recommendedVendorSelected:
+                        type: string
+                      - otherVendorSelected:
                         type: string
 
     prospecting.cancelled:
@@ -1176,10 +1202,19 @@ components:
               event:
                 $id: EventProspectingCancelled
                 type: object
-                required: [prospectingId]
+                required: [prospectingId, trigger, resolution]
                 properties:
                   prospectingId:
                     type: string
+                  trigger:
+                    type: string
+                    oneOf:
+                      - automatic:
+                        type: string
+                      - manual:
+                        type: string
+                      - tms:
+                        type: string
 
     job.offer.vendorSelectionRequested:
       description: |
