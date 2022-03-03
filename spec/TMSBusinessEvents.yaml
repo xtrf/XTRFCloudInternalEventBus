@@ -1049,13 +1049,13 @@ components:
               event:
                 $id: EventJobOfferAccepted
                 type: object
-                required: [jobId, contactProposal, vendor]
+                required: [jobId, contractProposal, vendor]
                 properties:
                   jobId:
                     type: string
                     format: UUID
-                  contactProposal:
-                    $id: ContactProposal
+                  contractProposal:
+                    $id: contractProposal
                     type: object
                     required: [fee, currency, plannedEndDate]
                     properties:
