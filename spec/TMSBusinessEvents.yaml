@@ -1055,7 +1055,7 @@ components:
                     type: string
                     format: UUID
                   contractProposal:
-                    $id: contractProposal
+                    $id: ContractProposal
                     type: object
                     required: [fee, currency, plannedEndDate]
                     properties:
