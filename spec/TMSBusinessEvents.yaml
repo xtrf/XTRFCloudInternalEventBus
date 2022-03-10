@@ -363,6 +363,46 @@ components:
             xtrfVendorContactPersonId:
               type: number
 
+    JobOfferVendorResponseType: 
+      enum:
+        - rejected
+        - accepted
+        - negotiated
+
+    ProspectingTriggerType: 
+      enum:
+        - automatic
+        - manual
+        - tms
+
+    ProspectingSelectionTriggerType: 
+      enum:
+        - automatic
+        - manual
+
+    ProspectingResolutionType: 
+      enum:
+        - vendorRecommended
+        - noRecommendation
+        - noProposalsReceived
+        - recommendedVendorSelected
+        - otherVendorSelected
+
+    ContractProposal:
+      $id: ContractProposal
+      type: object
+      required: [fee, currency, plannedEndDate]
+      properties:
+        fee:
+          description: It will always be integer, never float. For example 1.99$ will be represented by 199.
+          type: number
+        currency:
+          type: string
+          format: currency-ISO-code
+        plannedEndDate:
+          type: string
+          format: date-time
+
   messages:
     project.Created:
       description: |
@@ -1054,19 +1094,6 @@ components:
                   jobId:
                     type: string
                     format: UUID
-                  contractProposal:
-                    $id: ContractProposal
-                    type: object
-                    required: [fee, currency, plannedEndDate]
-                    properties:
-                      fee:
-                        type: number
-                      currency:
-                        type: string
-                        format: currency-ISO-code
-                      plannedEndDate:
-                        type: string
-                        format: date-time
                   vendor:
                     $ref: "#/components/schemas/JobOfferVendorDetails"
 
@@ -1165,27 +1192,9 @@ components:
                   vendorId:
                     type: string
                   trigger:
-                    type: string
-                    oneOf:
-                      - automatic:
-                        type: string
-                      - manual:
-                        type: string
-                      - tms:
-                        type: string
+                    $ref: "#/components/schemas/ProspectingTriggerType"
                   resolution:
-                    type: string
-                    oneOf:
-                      - vendorRecommended:
-                        type: string
-                      - noRecommendation:
-                        type: string
-                      - noProposalsReceived:
-                        type: string
-                      - recommendedVendorSelected:
-                        type: string
-                      - otherVendorSelected:
-                        type: string
+                    $ref: "#/components/schemas/ProspectingResolutionType"
 
     prospecting.cancelled:
       description: |
@@ -1207,14 +1216,7 @@ components:
                   prospectingId:
                     type: string
                   trigger:
-                    type: string
-                    oneOf:
-                      - automatic:
-                        type: string
-                      - manual:
-                        type: string
-                      - tms:
-                        type: string
+                    $ref: "#/components/schemas/ProspectingTriggerType"
 
     job.offer.vendorSelectionRequested:
       description: |
@@ -1236,29 +1238,20 @@ components:
                   prospectingId:
                     type: string
                   selectionTrigger:
-                    type: string
-                    oneOf:
-                      - manual:
-                          type: string
-                      - automatic:
-                          type: string
+                    $ref: "#/components/schemas/ProspectingSelectionTriggerType"
                   jobId:
                     type: string
                   vendorOffer:
                     $id: VendorOfferSelectionRequested
                     type: object
-                    required: [vendor, id, fee, currency, plannedEndDate]
+                    required: [vendor, id, contractProposal]
                     properties:
-                      vendor:
-                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
-                      fee:
-                        type: number
-                      currency:
-                        type: string
-                      plannedEndDate:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
+                      contractProposal:
+                        $ref: "#/components/schemas/ContractProposal"
 
     job.offer.sentToVendor:
       description: |
@@ -1284,19 +1277,14 @@ components:
                   vendorOffer:
                     $id: VendorOfferSentToVendor
                     type: object
-                    required: [vendor, id, fee, currency, plannedEndDate]
+                    required: [vendor, id, contractProposal]
                     properties:
-                      vendor:
-                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
-                      fee:
-                        description: It will always be integer, never float. For example 1.99$ will be represented by 199.
-                        type: number
-                      currency:
-                        type: string
-                      plannedEndDate:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
+                      contractProposal:
+                        $ref: "#/components/schemas/ContractProposal"
                       chatUrl:
                         type: string
 
@@ -1325,24 +1313,13 @@ components:
                     $id: VendorOfferVendorResponded
                     type: object
                     required:
-                      [vendor, id, fee, currency, plannedEndDate, response]
+                      [vendor, id, response]
                     properties:
-                      vendor:
-                        $ref: "#/components/schemas/JobOfferVendorDetails"
                       id:
                         type: string
-                      fee:
-                        type: number
-                      currency:
-                        type: string
-                      plannedEndDate:
-                        type: string
+                      vendor:
+                        $ref: "#/components/schemas/JobOfferVendorDetails"
+                      contractProposal:
+                        $ref: "#/components/schemas/ContractProposal"
                       response:
-                        type: string
-                        oneOf:
-                          - rejected:
-                            type: string
-                          - accepted:
-                            type: string
-                          - negotiated:
-                            type: string
+                        $ref: "#/components/schemas/JobOfferVendorResponseType"
