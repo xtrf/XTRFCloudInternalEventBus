@@ -1089,7 +1089,7 @@ components:
               event:
                 $id: EventJobOfferAccepted
                 type: object
-                required: [jobId, contractProposal, vendor]
+                required: [jobId, vendor]
                 properties:
                   jobId:
                     type: string
