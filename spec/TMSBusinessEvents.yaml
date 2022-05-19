@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.1.7
+  version: docs version 1.1.8
 defaultContentType: "application/json"
 channels:
   tms-events:
@@ -1167,6 +1167,7 @@ components:
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   prospectingUrl:
                     type: string
 
@@ -1189,8 +1190,10 @@ components:
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   vendorId:
                     type: string
+                    format: UUID
                   trigger:
                     $ref: "#/components/schemas/ProspectingTriggerType"
                   resolution:
@@ -1211,10 +1214,11 @@ components:
               event:
                 $id: EventProspectingCancelled
                 type: object
-                required: [prospectingId, trigger, resolution]
+                required: [prospectingId, trigger]
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   trigger:
                     $ref: "#/components/schemas/ProspectingTriggerType"
 
@@ -1237,10 +1241,12 @@ components:
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   selectionTrigger:
                     $ref: "#/components/schemas/ProspectingSelectionTriggerType"
                   jobId:
                     type: string
+                    format: UUID
                   vendorOffer:
                     $id: VendorOfferSelectionRequested
                     type: object
@@ -1248,6 +1254,7 @@ components:
                     properties:
                       id:
                         type: string
+                        format: UUID
                       vendor:
                         $ref: "#/components/schemas/JobOfferVendorDetails"
                       contractProposal:
@@ -1272,8 +1279,10 @@ components:
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   jobId:
                     type: string
+                    format: UUID
                   vendorOffer:
                     $id: VendorOfferSentToVendor
                     type: object
@@ -1281,6 +1290,7 @@ components:
                     properties:
                       id:
                         type: string
+                        format: UUID
                       vendor:
                         $ref: "#/components/schemas/JobOfferVendorDetails"
                       contractProposal:
@@ -1307,8 +1317,10 @@ components:
                 properties:
                   prospectingId:
                     type: string
+                    format: UUID
                   jobId:
                     type: string
+                    format: UUID
                   vendorOffer:
                     $id: VendorOfferVendorResponded
                     type: object
@@ -1317,6 +1329,7 @@ components:
                     properties:
                       id:
                         type: string
+                        format: UUID
                       vendor:
                         $ref: "#/components/schemas/JobOfferVendorDetails"
                       contractProposal:
