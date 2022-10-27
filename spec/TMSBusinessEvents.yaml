@@ -394,7 +394,6 @@ components:
       required: [fee, currency, plannedEndDate]
       properties:
         fee:
-          description: It will always be integer, never float. For example 1.99$ will be represented by 199.
           type: number
         currency:
           type: string
