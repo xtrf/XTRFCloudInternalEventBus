@@ -1285,17 +1285,22 @@ components:
                   vendorOffer:
                     $id: VendorOfferSentToVendor
                     type: object
-                    required: [vendor, id, contractProposal]
+                    required: [vendor, id, contractProposal, negotiationsAllowed, offerDeadline]
                     properties:
                       id:
                         type: string
                         format: UUID
+                      negotiationsAllowed:
+                        type: boolean
                       vendor:
                         $ref: "#/components/schemas/JobOfferVendorDetails"
                       contractProposal:
                         $ref: "#/components/schemas/ContractProposal"
                       chatUrl:
                         type: string
+                      offerDeadline:
+                        type: string
+                        format: date-time
 
     job.offer.vendorResponded:
       description: |
@@ -1335,3 +1340,29 @@ components:
                         $ref: "#/components/schemas/ContractProposal"
                       response:
                         $ref: "#/components/schemas/JobOfferVendorResponseType"
+    job.offer.expired:
+      description: |
+        * Job offer should send it when: vendor offer expires and for every offer separately.
+      payload:
+        $id: MessageJobOfferExpired
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.expired
+              event:
+                $id: EventJobOfferExpired
+                type: object
+                required: [prospectingId, jobId, vendorOfferId]
+                properties:
+                  prospectingId:
+                    type: string
+                    format: UUID
+                  jobId:
+                    type: string
+                    format: UUID
+                  vendorOfferId:
+                    type: string
+                    format: UUID
