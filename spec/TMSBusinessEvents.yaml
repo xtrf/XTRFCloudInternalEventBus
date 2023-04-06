@@ -1135,7 +1135,7 @@ components:
               eventName:
                 const: tms.event.job.prospecting.requested
               event:
-                $id: TODO
+                $id: EventProspectingRequested
                 type: object
                 required: [jobId, autostart, workspaceId, projectCurrency, vendors]
                 properties:
