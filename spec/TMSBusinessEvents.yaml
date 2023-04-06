@@ -35,6 +35,7 @@ channels:
 
           - $ref: "#/components/messages/job.offer.AcceptedEvent"
           - $ref: "#/components/messages/job.offer.RejectedEvent"
+          - $ref: "#/components/messages/job.ProspectingRequestedEvent"
 
           - $ref: "#/components/messages/user.DeletedOrErased"
 
@@ -1119,6 +1120,137 @@ components:
                     format: UUID
                   vendor:
                     $ref: "#/components/schemas/JobOfferVendorDetails"
+
+    job.ProspectingRequestedEvent:
+      description: |
+        * TMS should send it when: New prospecting should be created 
+        * XTRF sends it when: New prospecting should be created
+      payload:
+        $id: MessageProspectingRequestedEvent
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [jobId, autostart, workspaceId, projectCurrency, vendors]
+            properties:
+              eventName:
+                const: tms.event.job.prospecting.requested
+              event:
+                $id: TODO
+                type: object
+                required: [jobId, autostart, workspaceId, projectCurrency, vendors]
+                properties:
+                  jobId:
+                    type: string
+                    format: UUID
+                  autostart:
+                    type: boolean
+                  prospectingStrategyId:
+                    type: string
+                    format: UUID
+                  workspaceId:
+                    type: string
+                    format: UUID
+                  projectCurrency:
+                    type: string
+                    format: currency-ISO-code
+                  vendors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        profile:
+                          type: object
+                          properties:
+                            vendorId:
+                              type: string
+                              format: UUID
+                            metadata:
+                              type: object
+                              properties:
+                                xtrfVendorContactPersonId:
+                                  type: number
+                                xtrfVendorId:
+                                  type: number
+                                xtrfVendorPriceProfileId:
+                                  type: number
+                                xtrfVendorPriceProfileDefault:
+                                  type: boolean
+                        details:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            legalName:
+                              type: string
+                            individual:
+                              type: boolean
+                            inHouse:
+                              type: boolean
+                            preferredByClient:
+                              type: boolean
+                            nativeSpeaker:
+                              type: boolean
+                            country:
+                              type: string
+                            city:
+                              type: string
+                        contactPersonDetails:
+                          type: object
+                          required: [name, email]
+                          properties:
+                            name:
+                              type: string
+                            email:
+                              type: string
+                        evaluation:
+                          type: number
+                        tools:
+                          type: array
+                          items:
+                            type: string
+                        finance:
+                          type: object
+                          required: [currency]
+                          properties:
+                            fee:
+                              type: number
+                            currency:
+                              type: string
+                              format: currency-ISO-code
+                        history:
+                          type: object
+                          properties:
+                            lastJobDate:
+                              type: string
+                              format: date-time
+                            lastJobDateForThisClient:
+                              type: string
+                              format: date-time
+                            workedForThisClient:
+                              type: boolean
+                        labels:
+                          type: array
+                          items:
+                            type: string
+                        additionalProperties:
+                          type: object
+                          required: [priceProfileName]
+                          properties:
+                            priceProfileName:
+                              type: string
+                            customFields:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                  value:
+                                    type: array
+                                    items:
+                                      type: string
+                                  type:
+                                    type: string
 
     user.DeletedOrErased:
       description: |
