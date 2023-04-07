@@ -1130,7 +1130,7 @@ components:
         allOf:
           - $ref: "#/components/schemas/EventEnvelope"
           - type: object
-            required: [jobId, autostart, workspaceId, projectCurrency, vendors]
+            required: [eventName, event]
             properties:
               eventName:
                 const: tms.event.job.prospecting.requested
