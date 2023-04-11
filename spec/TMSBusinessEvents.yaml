@@ -1089,8 +1089,11 @@ components:
               event:
                 $id: EventJobOfferAccepted
                 type: object
-                required: [jobId, vendor]
+                required: [offerId, jobId, vendor]
                 properties:
+                  offerId:
+                    type: string
+                    format: UUID
                   jobId:
                     type: string
                     format: UUID
@@ -1113,8 +1116,11 @@ components:
               event:
                 $id: EventJobOfferRejected
                 type: object
-                required: [jobId, vendor]
+                required: [offerId, jobId, vendor]
                 properties:
+                  offerId:
+                    type: string
+                    format: UUID
                   jobId:
                     type: string
                     format: UUID
