@@ -1143,12 +1143,15 @@ components:
               event:
                 $id: EventProspectingRequested
                 type: object
-                required: [jobId, projectId, autostart, projectCurrency, vendors]
+                required: [jobId, projectId, requestId, autostart, projectCurrency, vendors]
                 properties:
                   jobId:
                     type: string
                     format: UUID
                   projectId:
+                    type: string
+                    format: UUID
+                  requestId:
                     type: string
                     format: UUID
                   autostart:
