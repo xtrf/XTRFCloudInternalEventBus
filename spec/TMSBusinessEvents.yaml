@@ -1175,15 +1175,18 @@ components:
                   vendors:
                     type: array
                     items:
+                      $id: VendorsList
                       type: object
                       properties:
                         profile:
+                          $id: Profile
                           type: object
                           properties:
                             vendorId:
                               type: string
                               format: UUID
                             metadata:
+                              $id: ProfileMetadata
                               type: object
                               properties:
                                 xtrfVendorContactPersonId:
@@ -1195,6 +1198,7 @@ components:
                                 xtrfVendorPriceProfileDefault:
                                   type: boolean
                         details:
+                          $id: VendorsDetails
                           type: object
                           properties:
                             name:
@@ -1214,6 +1218,7 @@ components:
                             city:
                               type: string
                         contactPersonDetails:
+                          $id: VendorsContactPersonDetails
                           type: object
                           required: [name, email]
                           properties:
@@ -1228,6 +1233,7 @@ components:
                           items:
                             type: string
                         finance:
+                          $id: VendorsFinance
                           type: object
                           required: [currency]
                           properties:
@@ -1237,6 +1243,7 @@ components:
                               type: string
                               format: currency-ISO-code
                         history:
+                          $id: VendorsHistory
                           type: object
                           properties:
                             lastJobDate:
@@ -1252,6 +1259,7 @@ components:
                           items:
                             type: string
                         additionalProperties:
+                          $id: VendorsAdditionalProperties
                           type: object
                           required: [priceProfileName]
                           properties:
@@ -1260,6 +1268,7 @@ components:
                             customFields:
                               type: array
                               items:
+                                $id: CustomField
                                 type: object
                                 properties:
                                   name:
