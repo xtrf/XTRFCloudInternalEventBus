@@ -1,7 +1,7 @@
 asyncapi: 2.0.0
 info:
   title: Chat 2.0 Events
-  version: docs version 1.1.8
+  version: docs version 1.1.9
 defaultContentType: "application/json"
 channels:
   tms-events:
@@ -51,6 +51,9 @@ channels:
             - $ref: "#/components/messages/prospecting.started"
             - $ref: "#/components/messages/prospecting.finished"
             - $ref: "#/components/messages/prospecting.cancelled"
+
+            - $ref: "#/components/messages/prospecting.created"
+            - $ref: "#/components/messages/prospecting.creationFailed"
 
 components:
   schemas:
@@ -402,6 +405,13 @@ components:
         plannedEndDate:
           type: string
           format: date-time
+
+    ProspectingCreationFailureType:
+      enum:
+        - requestValidationError
+        - jobNotFound
+        - prospectingStrategyNotFound
+        - otherError
 
   messages:
     project.Created:
@@ -1361,6 +1371,64 @@ components:
                     format: UUID
                   trigger:
                     $ref: "#/components/schemas/ProspectingTriggerType"
+
+    prospecting.created:
+      description: |
+        * Job offer should send it when: prospecting is created.
+      payload:
+        $id: MessageProspectingCreated
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.prospecting.created
+              event:
+                $id: EventProspectingCreated
+                type: object
+                required: [jobId, jobProspectingId, requestId, jobProspectingWizardUrl]
+                properties:
+                  jobId:
+                    type: string
+                    format: UUID
+                  requestId:
+                    type: string
+                    format: UUID
+                  prospectingId:
+                    type: string
+                    format: UUID
+                  prospectingWizardUrl:
+                    type: string
+
+    prospecting.creationFailed:
+      description: |
+        * Job offer should send it when: prospecting is not created due to some error.
+      payload:
+        $id: MessageProspectingCreationFailed
+        allOf:
+          - $ref: "#/components/schemas/EventEnvelope"
+          - type: object
+            required: [eventName, event]
+            properties:
+              eventName:
+                const: jobOffers.prospecting.creationFailed
+              event:
+                $id: EventProspectingCreationFailed
+                type: object
+                required: [jobId, requestId, responseFailureType]
+                properties:
+                  jobId:
+                    type: string
+                    format: UUID
+                  requestId:
+                    type: string
+                    format: UUID
+                  responseFailureType:
+                    $ref: "#/components/schemas/ProspectingCreationFailureType"
+                    format: UUID
+                  responseFailureDetails:
+                    type: string
 
     job.offer.vendorSelectionRequested:
       description: |
