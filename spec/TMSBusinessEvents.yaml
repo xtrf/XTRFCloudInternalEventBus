@@ -1396,7 +1396,7 @@ components:
               event:
                 $id: EventProspectingCreated
                 type: object
-                required: [jobId, jobProspectingId, requestId, jobProspectingWizardUrl]
+                required: [jobId, requestId, prospectingId, prospectingWizardUrl]
                 properties:
                   jobId:
                     type: string
