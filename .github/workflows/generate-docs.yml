@@ -42,4 +42,4 @@ jobs:
           target-branch: 'documentation'
           destination-github-username: 'xtrf'
           destination-repository-name: 'XTRFCloudInternalEventBus'
-          user-email: ruszczak.piotr@gmail.com
+          user-email: admin+github-robot@xtrf.eu
